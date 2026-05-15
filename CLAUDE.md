@@ -60,7 +60,7 @@ De 0 a nivel senior, ordenado por dependencias. Estructura típica: **fundamento
   - Lista numerada de conceptos del curso.
   - Posición exacta de los proyectos integradores ("tras concepto 3, primer proyecto: `projects/todo-app/` que usa componentes + props + estado").
   - Sección **"Recursos"** con docs oficiales, libros, repos clave, materiales curados (todos verificados como actuales en el paso 1).
-- `notes/concepts/<X>.md` como **MOC**: índice del plan en formato nota Obsidian, con `[[wikilinks]]` preparados para las notas conceptuales que se irán creando.
+- `notes/<bucket>/<x>/<Tema>.md` como **MOC**: índice del plan en formato nota Obsidian, con `[[wikilinks]]` preparados para las notas conceptuales que se irán creando. El MOC y las notas atómicas del tema viven juntos en la misma subcarpeta del vault (p.ej. el curso en `languages/javascript/` tiene su MOC en `notes/languages/javascript/JavaScript.md` y las notas atómicas en `notes/languages/javascript/strict-mode.md`, `closures.md`, etc.).
 
 ### 4. Confirma con Iván
 
@@ -78,10 +78,12 @@ Crea `<bucket>/<x>/01-<concepto>/` con su `README.md` (objetivos, explicación, 
 <repo-root>/
 ├── CLAUDE.md                    (este archivo)
 ├── progress.md                  (bitácora global, español)
-├── notes/                       (vault Obsidian — Iván lo abre desde la app)
-│   ├── concepts/                (MOCs y notas conceptuales: Python.md, JWT.md…)
-│   ├── languages/               (notas específicas de lenguaje: python-async.md)
-│   ├── frameworks/              (flask.md, react.md, springboot.md…)
+├── notes/                       (vault Obsidian, Iván lo abre desde la app)
+│   ├── concepts/                (conceptos transversales y cross-language: JWT.md, REST.md, OAuth.md…)
+│   ├── languages/               (un subdirectorio por lenguaje: MOC + notas atómicas dentro)
+│   │   └── javascript/          (JavaScript.md como MOC, strict-mode.md, closures.md…)
+│   ├── frameworks/              (un subdirectorio por framework: MOC + notas atómicas dentro)
+│   │   └── react/               (React.md como MOC, hooks.md, jsx.md…)
 │   └── questions/               (dudas abiertas pendientes)
 ├── languages/                   ┐
 ├── frontend/                    ├─ buckets vivos (reconocidos desde hoy)
@@ -120,9 +122,13 @@ Los integradores son **opcionales pero recomendados**. Si Iván dice "skip, siga
 
 ## El vault (`notes/`)
 
-- **Una idea = una nota atómica**. JWT existe UNA vez en `notes/concepts/JWT.md` y se enlaza con `[[JWT]]` desde donde haga falta. Obsidian añade los backlinks automáticamente — no hay que duplicar contenido.
-- **MOCs** (`notes/concepts/Python.md`, `notes/concepts/Frontend.md`, etc.) para vista cruzada: enlazan todas las notas relevantes de un tema, independientemente del bucket donde viva el código.
-- **Notas hijas** para contexto específico: no engordes la nota atómica. Si quieres hablar de JWT en el navegador, crea `notes/frameworks/jwt-en-react.md` que linka a `[[JWT]]`.
+- **Una idea = una nota atómica**. Cada concepto vive en UN solo archivo y se enlaza con `[[wikilink]]` desde donde haga falta. Obsidian añade los backlinks automáticamente, no hay que duplicar contenido.
+- **Dónde va cada nota**:
+  - Concepto específico de un lenguaje → `notes/languages/<lenguaje>/<concepto>.md` (p.ej. `notes/languages/javascript/closures.md`).
+  - Concepto específico de un framework → `notes/frameworks/<framework>/<concepto>.md` (p.ej. `notes/frameworks/react/hooks.md`).
+  - Concepto transversal o cross-language → `notes/concepts/<concepto>.md` (p.ej. `notes/concepts/JWT.md`, `notes/concepts/REST.md`).
+- **MOC por tema**: cada lenguaje/framework con curso activo tiene su MOC en su propia subcarpeta del vault (p.ej. `notes/languages/javascript/JavaScript.md`). El MOC enlaza todas las notas atómicas del tema y refleja el plan del curso.
+- **Notas hijas** para contexto específico: no engordes la nota atómica. Si quieres hablar de JWT en el contexto de React, crea `notes/frameworks/react/jwt-en-react.md` que linka a `[[JWT]]`.
 - Iván gestiona la app Obsidian apuntando a la carpeta `notes/` de este repositorio. Tú escribes los `.md` directamente con `Write`/`Edit`.
 
 ## Bitácora (`progress.md`)
