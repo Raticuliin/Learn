@@ -10,11 +10,11 @@ Thumbs.db
 *~
 
 # Obsidian — estado volátil (la configuración de plugins/temas SÍ se sincroniza)
-.obsidian/workspace
-.obsidian/workspace.json
-.obsidian/workspace-mobile.json
-.obsidian/cache
-.trash/
+**/.obsidian/workspace
+**/.obsidian/workspace.json
+**/.obsidian/workspace-mobile.json
+**/.obsidian/cache
+**/.trash/
 
 # Secretos
 .env
