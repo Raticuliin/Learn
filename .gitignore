@@ -1,0 +1,54 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editores / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Obsidian — estado volátil (la configuración de plugins/temas SÍ se sincroniza)
+.obsidian/workspace
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.trash/
+
+# Secretos
+.env
+.env.local
+.env.*.local
+
+# Node / JS / TS
+node_modules/
+dist/
+build/
+.next/
+.nuxt/
+.svelte-kit/
+.cache/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# Java / JVM
+target/
+*.class
+.gradle/
+*.iml
+
+# Otros builds
+out/
+tmp/
