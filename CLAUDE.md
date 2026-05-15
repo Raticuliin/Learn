@@ -131,16 +131,38 @@ Los integradores son **opcionales pero recomendados**. Si Iván dice "skip, siga
 - **Notas hijas** para contexto específico: no engordes la nota atómica. Si quieres hablar de JWT en el contexto de React, crea `notes/frameworks/react/jwt-en-react.md` que linka a `[[JWT]]`.
 - Iván gestiona la app Obsidian apuntando a la carpeta `notes/` de este repositorio. Tú escribes los `.md` directamente con `Write`/`Edit`.
 
-## Bitácora (`progress.md`)
+## Bitácora
 
-**Al inicio de cada sesión, lee `progress.md` primero** para recoger el hilo de la última vez (si existe).
+Dos niveles, separados a propósito:
 
-**Al final de cada sesión sustancial, actualízalo** (créalo si no existe) con:
+- **`<bucket>/<x>/progress.md`** → progreso didáctico del curso. Una entrada por módulo cerrado.
+- **`progress.md` raíz** → solo decisiones meta del proyecto (convenciones, reorganizaciones cross-curso). Crece muy lento.
 
-- Fecha y tema/concepto trabajado.
-- Qué quedó claro.
-- Qué quedó pendiente o como duda abierta (enlaza a `notes/questions/` si aplica).
-- Siguiente paso sugerido.
+### Al arrancar sesión
+
+Lee el `progress.md` del curso que vamos a tocar para recoger el hilo. Si el contexto no deja claro qué curso, mira qué archivo tiene Iván abierto en el IDE o pregúntale. Lee el `progress.md` raíz solo si necesitas refrescar convenciones meta.
+
+### Cuándo escribir
+
+- **Una entrada en el progress del curso por módulo cerrado**, no por sesión. Las sesiones intermedias no se registran salvo que dejen una duda abierta importante.
+- **Entradas en `progress.md` raíz**: solo cuando se toma una decisión meta del proyecto.
+
+### Formato compacto del progress de curso (objetivo: 4-6 líneas por entrada)
+
+```
+## YYYY-MM-DD. Módulo N: <Título>
+
+- **Cubierto**: <una línea con lo trabajado>. Ejercicio <archivo> ok.
+- **Notas vault**: [[nota-1]], [[nota-2]].
+- **Pendiente**: <duda abierta o "nada">.
+- **Siguiente**: Módulo N+1, <título>.
+```
+
+Sin sub-secciones, sin enumeraciones largas. Si una decisión merece más detalle, va a `notes/questions/` o a una nota del vault y se enlaza desde aquí.
+
+### Crear el progress de un curso
+
+La primera vez que se cierra un módulo de un curso, crea su `progress.md` y añade el curso al índice del `progress.md` raíz.
 
 ## Filosofía: crece solo
 

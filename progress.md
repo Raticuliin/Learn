@@ -1,40 +1,17 @@
-# Bitácora de aprendizaje
+# Bitácora meta del repo
 
-Cada entrada al inicio. Las más recientes arriba.
+Solo decisiones meta del proyecto (convenciones, reorganizaciones cross-curso). **El progreso didáctico de cada curso vive en `<bucket>/<x>/progress.md`**.
+
+Cursos activos con bitácora propia:
+
+- [JavaScript](languages/javascript/progress.md)
+
+Las más recientes arriba.
 
 ---
 
-## 2026-05-16. Arranque del repo + Módulo 1 de JavaScript
+## 2026-05-16. Arranque del repo
 
-### Tema
-
-Primera sesión. Diseño del plan de aprendizaje y arranque del curso de JavaScript.
-
-### Qué se hizo
-
-- **Plan completo de JavaScript** diseñado en [`languages/javascript/README.md`](languages/javascript/README.md): 70 módulos en 13 fases, con 3 proyectos integradores (CLI guess-game tras módulo 7, SPA vanilla con API tras Fase 6, app markdown-notes al final).
-- **MOC del vault** creado en [`notes/languages/javascript/JavaScript.md`](notes/languages/javascript/JavaScript.md) con wikilinks preparados para todas las notas conceptuales del curso.
-- **Módulo 1, Sintaxis y entorno**: visto y cerrado. Cubrió sintaxis mínima, literales de los 7 primitivos, `'use strict'` (y por qué casi no hace falta escribirlo en 2026), runtimes JS (Node / navegador / Deno / Bun). Ejercicio `hello.js` hecho y revisado.
-- **Notas del vault del módulo 1** escritas:
-  - [`notes/languages/javascript/strict-mode.md`](notes/languages/javascript/strict-mode.md)
-  - [`notes/languages/javascript/js-runtimes.md`](notes/languages/javascript/js-runtimes.md)
-
-### Decisiones tomadas
-
-- **Salto a React** previsto tras módulo 55 (fin de Fase 9), saltándose Fases 4 (OOP/prototipos) y 5 (Symbols/Proxy/GC profundo). Iván puede cambiar de opinión.
-- **Obsidian sigue apuntando a `notes/`**, no al root del repo. Decisión expresa.
-- **Archivos de módulo se llaman `README.md`** (convención mantenida).
-- **Yo redacto las notas del vault** al cerrar cada módulo, sin que Iván las pida (guardado como `vault-notes-author` en memoria).
-- **Planes de curso siempre completos**, sin recortes anticipados; Iván decide qué saltar (guardado como `course-scope-completeness`).
-- **Nunca usar guion largo (em dash)** en ningún archivo (guardado como `no-em-dash`). Archivos previos limpiados retroactivamente.
-- **Vault reorganizado**: subcarpeta por tema dentro de `notes/languages/` y `notes/frameworks/`. MOC y notas atómicas del tema viven juntos (p.ej. `notes/languages/javascript/JavaScript.md` + `strict-mode.md` + `js-runtimes.md`). `notes/concepts/` queda para conceptos transversales (JWT, REST...). `CLAUDE.md` del repo actualizado con la nueva convención.
-
-### Qué quedó claro / qué no
-
-Sin dudas abiertas del módulo 1. Insight clave que Iván verbalizó bien: sin strict, una asignación a variable no declarada crea una global silenciosamente; con strict, lanza `ReferenceError`.
-
-### Siguiente paso
-
-**Módulo 2, Variables y bindings**: `var` / `let` / `const`, hoisting, Temporal Dead Zone, block vs function scope. Pendiente de arrancar.
-
-Nota didáctica para el módulo 2: en el ejercicio del 1, Iván usó `let` para todo. Recordar que la regla moderna es `const` por defecto, `let` solo si se reasigna. Esto cae de lleno en el módulo 2, aprovechar para reforzarlo.
+- **Plan JavaScript** diseñado: 70 módulos, 13 fases, 3 proyectos integradores. Salto previsto a React tras módulo 55.
+- **Convenciones fijadas en `CLAUDE.md`**: vault reorganizado (subcarpeta por tema, MOC junto a notas atómicas); planes siempre completos; sin em-dash; Claude redacta notas del vault al cerrar módulo.
+- **Modelo de bitácora**: una entrada compacta por módulo cerrado en el `progress.md` del curso; este archivo raíz solo para meta.

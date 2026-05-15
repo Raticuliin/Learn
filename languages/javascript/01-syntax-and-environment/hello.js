@@ -1,13 +1,13 @@
 //'use strict';
 
 // Declaración de variables
-let varNumber       = 0;
-let varBigInt       = 0n;
-let varString       = "string";
-let varBool         = true;
-let varNull         = null;
-let varUndefined;   
-let varSymbol       = Symbol("0");
+let varNumber = 0;
+let varBigInt = 0n;
+let varString = "string";
+let varBool = true;
+let varNull = null;
+let varUndefined;
+let varSymbol = Symbol("0");
 
 // Imprimir variables
 console.log(`number: ${varNumber}`);
@@ -22,6 +22,6 @@ console.log(`symbol: ${varSymbol.toString()}`);
 
 /**
  * Con use strict: ReferenceError: varSinDeclarar is not defined
- * Sin use strict: 
+ * Sin use strict:
  */
-varSinDeclarar = "variable sin declarar";   
+varSinDeclarar = "variable sin declarar";
