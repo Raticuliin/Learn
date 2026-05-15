@@ -26,7 +26,8 @@ Primera sesión. Diseño del plan de aprendizaje y arranque del curso de JavaScr
 - **Archivos de módulo se llaman `README.md`** (convención mantenida).
 - **Yo redacto las notas del vault** al cerrar cada módulo, sin que Iván las pida (guardado como `vault-notes-author` en memoria).
 - **Planes de curso siempre completos**, sin recortes anticipados; Iván decide qué saltar (guardado como `course-scope-completeness`).
-- **Nunca usar guion largo (em dash)** en ningún archivo (guardado como `no-em-dash`).
+- **Nunca usar guion largo (em dash)** en ningún archivo (guardado como `no-em-dash`). Archivos previos limpiados retroactivamente.
+- **Vault reorganizado**: subcarpeta por tema dentro de `notes/languages/` y `notes/frameworks/`. MOC y notas atómicas del tema viven juntos (p.ej. `notes/languages/javascript/JavaScript.md` + `strict-mode.md` + `js-runtimes.md`). `notes/concepts/` queda para conceptos transversales (JWT, REST...). `CLAUDE.md` del repo actualizado con la nueva convención.
 
 ### Qué quedó claro / qué no
 
