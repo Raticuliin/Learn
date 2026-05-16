@@ -23,21 +23,21 @@ console.log(greeting);
 Detalles a notar:
 
 - **Case-sensitive**: `name` y `Name` son cosas distintas.
-- **Punto y coma**: técnicamente *opcional* (hay un mecanismo llamado ASI, Automatic Semicolon Insertion, que los inserta solo). En la práctica, la mayoría de equipos los ponen explícitos o usan Prettier que decide. **Vamos a ponerlos explícitos** durante el curso.
+- **Punto y coma**: técnicamente _opcional_ (hay un mecanismo llamado ASI, Automatic Semicolon Insertion, que los inserta solo). En la práctica, la mayoría de equipos los ponen explícitos o usan Prettier que decide. **Vamos a ponerlos explícitos** durante el curso.
 - **Identificadores**: pueden empezar por letra, `_`, o `$`. No por número.
-- **Statements vs expressions**: una statement *hace* algo, una expression *produce un valor*. `let x = 2;` es statement; `2 + 3` es expression. Importa más adelante.
+- **Statements vs expressions**: una statement _hace_ algo, una expression _produce un valor_. `let x = 2;` es statement; `2 + 3` es expression. Importa más adelante.
 
 ## 2. Literales primitivos
 
 JS tiene 7 tipos primitivos. Sus literales:
 
 ```js
-let aNumber = 42;          // number
-let aBigInt = 42n;         // bigint (con la 'n' al final)
-let aString = "hello";     // string (también 'hello' o `hello`)
-let aBoolean = true;       // boolean
-let nothing = null;        // null (valor "vacío" explícito)
-let notAssigned;           // undefined (sin asignar todavía)
+let aNumber = 42; // number
+let aBigInt = 42n; // bigint (con la 'n' al final)
+let aString = "hello"; // string (también 'hello' o `hello`)
+let aBoolean = true; // boolean
+let nothing = null; // null (valor "vacío" explícito)
+let notAssigned; // undefined (sin asignar todavía)
 let unique = Symbol("id"); // symbol (lo veremos en Fase 5)
 ```
 
@@ -53,12 +53,12 @@ JavaScript arrastra decisiones de diseño de los 90 que hoy son trampas. **Stric
 
 Qué cambia con strict mode (ejemplos clásicos):
 
-| Sin strict | Con strict |
-|---|---|
+| Sin strict                                                    | Con strict             |
+| ------------------------------------------------------------- | ---------------------- |
 | `x = 10;` (sin declarar) crea variable global silenciosamente | Lanza `ReferenceError` |
-| Asignar a una propiedad de solo-lectura falla en silencio | Lanza `TypeError` |
-| `this` en una función normal apunta al objeto global | `this` es `undefined` |
-| Permite ciertos errores de sintaxis "legacy" | Los prohíbe |
+| Asignar a una propiedad de solo-lectura falla en silencio     | Lanza `TypeError`      |
+| `this` en una función normal apunta al objeto global          | `this` es `undefined`  |
+| Permite ciertos errores de sintaxis "legacy"                  | Los prohíbe            |
 
 **En 2026 strict mode es prácticamente el default** porque:
 
@@ -69,12 +69,12 @@ Solo necesitas escribir `'use strict';` explícito en scripts viejos o archivos 
 
 ## 4. Dónde se ejecuta JS
 
-| Entorno | Qué es | Cuándo |
-|---|---|---|
-| **Navegador** | Motor V8 (Chrome/Edge/Brave), SpiderMonkey (Firefox), JavaScriptCore (Safari). Acceso al DOM y APIs web. | Frontend |
-| **Node.js** | V8 + APIs propias para sistema (`fs`, `http`, `process`...). El más usado en backend JS. | Backend, CLIs, tooling |
-| **Deno** | Alternativa moderna a Node del mismo creador (Ryan Dahl). Seguro por defecto (permisos explícitos), TypeScript nativo, ESM-first. | Aún minoritario, pero creciente |
-| **Bun** | Runtime nuevo (escrito en Zig). Muy rápido, intenta ser drop-in replacement de Node + bundler + test runner. | Ganando tracción, especialmente en tooling |
+| Entorno       | Qué es                                                                                                                            | Cuándo                                     |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| **Navegador** | Motor V8 (Chrome/Edge/Brave), SpiderMonkey (Firefox), JavaScriptCore (Safari). Acceso al DOM y APIs web.                          | Frontend                                   |
+| **Node.js**   | V8 + APIs propias para sistema (`fs`, `http`, `process`...). El más usado en backend JS.                                          | Backend, CLIs, tooling                     |
+| **Deno**      | Alternativa moderna a Node del mismo creador (Ryan Dahl). Seguro por defecto (permisos explícitos), TypeScript nativo, ESM-first. | Aún minoritario, pero creciente            |
+| **Bun**       | Runtime nuevo (escrito en Zig). Muy rápido, intenta ser drop-in replacement de Node + bundler + test runner.                      | Ganando tracción, especialmente en tooling |
 
 En tu máquina ya tienes Node 25.9.0 (vía `mise`). Ejecutar un archivo:
 
