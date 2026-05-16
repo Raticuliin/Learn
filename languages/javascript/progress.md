@@ -4,6 +4,15 @@ Una entrada por módulo cerrado, formato compacto (ver `CLAUDE.md` raíz → "Bi
 
 ---
 
+## 2026-05-16. Módulo 6: Control de flujo
+
+- **Cubierto**: `if`/`else` con truthy/falsy, ternario, `switch` con `===` y fall-through (intencional vs olvido), bucles imperativos (`for`, `while`, `do...while`), `for...of` vs `for...in` y la trampa de `for...in` sobre arrays, `break`/`continue` y labels (con preferencia por refactor a función + `return`). Ejercicio `flow.js` ok.
+- **Notas vault**: [[control-flow-js]], [[switch-fall-through]], [[for-in-vs-for-of]].
+- **Pendiente**: cayó en el bug clásico `18 <= age < 65` en Parte 1 — JS no encadena comparaciones estilo matemáticas, evalúa `(18 <= age) < 65` que es casi siempre `true`. Reforzar cuando aparezca en código real o ejercicios futuros. También usaba `toNumberOrNull(age)` pero comparaba `age` sin reasignar el resultado convertido; funcionaba por coerción pero es frágil — reasignar el valor saneado a `n` o similar.
+- **Siguiente**: Módulo 7, Funciones I (declaración, expresión, parámetros por defecto, rest, return, arrow vs `function`).
+
+---
+
 ## 2026-05-16. Módulo 5: Coerción de tipos
 
 - **Cubierto**: explícita vs implícita, las tres conversiones (string, number, boolean) con su tabla completa de casos raros (`Number(null)=0` pero `Number(undefined)=NaN`, `Boolean([])=true`, etc.), los 8 valores falsy, intro a `ToPrimitive` para los "wat" (`[] + {}`), y `Number.isNaN` vs `isNaN` global. Ejercicio `coercion.js` ok, incluida la Parte 5 (`toNumberOrNull` con filtro por `typeof` + trim + `Number.isFinite`).
