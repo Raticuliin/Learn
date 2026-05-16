@@ -4,6 +4,15 @@ Una entrada por módulo cerrado, formato compacto (ver `CLAUDE.md` raíz → "Bi
 
 ---
 
+## 2026-05-16. Módulo 4: Operadores
+
+- **Cubierto**: aritméticos (gotcha del `+` con strings, unario `+` para coercer), `==` vs `===` como **coerción sí/no**, regla ad-hoc de `null == undefined`, lógicos devolviendo operandos (no booleans), short-circuit, `??` vs `||` (trampa con `0`/`""`), `?.` (las tres variantes y short-circuit nullish), spread/rest (primer contacto). Ejercicio `operators.js` ok.
+- **Notas vault**: [[js-operators]], [[nullish-coalescing]], [[optional-chaining]].
+- **Pendiente**: las dos pendientes del módulo 3 quedan **resueltas** (Iván ya describe `==` como coerción y `null == undefined` como regla ad-hoc, no como "ambos falsy"). Nuevo pendiente menor: su explicación de `user?.sayHi?.()` se quedó en lo descriptivo ("no existe y devuelve undefined") en vez de articular el mecanismo del short-circuit; reforzarlo cuando aparezca en cadenas más complejas (módulos de objetos/prototipos).
+- **Siguiente**: Módulo 5, Coerción de tipos (truthy/falsy a fondo, conversiones implícitas y explícitas, `NaN`, `Number.isNaN`).
+
+---
+
 ## 2026-05-16. Módulo 3: Tipos primitivos
 
 - **Cubierto**: los 7 primitivos, `null` vs `undefined` (intencional vs automático), rarezas de `typeof` (`null` → `"object"`, tolera no-declaradas), igualdad (`==` coerciona / `===` no, regla especial `null == undefined`, `NaN !== NaN`, `Object.is` para NaN y ±0), autoboxing y wrapper efímero. Ejercicio `primitives.js` ok.
