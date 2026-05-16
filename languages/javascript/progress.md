@@ -4,6 +4,15 @@ Una entrada por módulo cerrado, formato compacto (ver `CLAUDE.md` raíz → "Bi
 
 ---
 
+## 2026-05-16. Módulo 5: Coerción de tipos
+
+- **Cubierto**: explícita vs implícita, las tres conversiones (string, number, boolean) con su tabla completa de casos raros (`Number(null)=0` pero `Number(undefined)=NaN`, `Boolean([])=true`, etc.), los 8 valores falsy, intro a `ToPrimitive` para los "wat" (`[] + {}`), y `Number.isNaN` vs `isNaN` global. Ejercicio `coercion.js` ok, incluida la Parte 5 (`toNumberOrNull` con filtro por `typeof` + trim + `Number.isFinite`).
+- **Notas vault**: [[type-coercion]], [[truthy-falsy]], [[NaN]].
+- **Pendiente**: en Parte 5 cayó en dos errores típicos antes de cerrar: (a) usar solo `Number()` + `isFinite` sin filtrar por `typeof` (acepta `null`, `true`, `[42]`); (b) hacer `input.trim()` sin asignar el resultado, olvidando que **los strings son inmutables** (ya visto en módulo 3 con [[js-primitive-types]]). El segundo es un buen recordatorio cuando lleguemos a strings a fondo en módulo 8.
+- **Siguiente**: Módulo 6, Control de flujo (`if/else`, `switch`, `for`, `for...of`, `for...in`, `while`, `do...while`, `break`/`continue`, labels).
+
+---
+
 ## 2026-05-16. Módulo 4: Operadores
 
 - **Cubierto**: aritméticos (gotcha del `+` con strings, unario `+` para coercer), `==` vs `===` como **coerción sí/no**, regla ad-hoc de `null == undefined`, lógicos devolviendo operandos (no booleans), short-circuit, `??` vs `||` (trampa con `0`/`""`), `?.` (las tres variantes y short-circuit nullish), spread/rest (primer contacto). Ejercicio `operators.js` ok.
