@@ -24,8 +24,8 @@ Iván decide qué módulos saltarse (tiene base de programación de Java/Spring)
 ## Fase 2. Datos
 
 8. **Strings en profundidad**: template literals, métodos, Unicode, normalización
-9. **Numbers**: precisión IEEE-754, `BigInt`, `Math`, `Math.sumPrecise` (ES2026)
-10. **Arrays**: creación, métodos mutadores vs inmutadores, iteración, `Array.from`, `Array.fromAsync`
+9. **Numbers**: precisión IEEE-754, `BigInt`, `Math`, métodos estáticos de `Number`
+10. **Arrays**: creación, métodos mutadores vs inmutadores (incluyendo `toSorted`/`toReversed`/`toSpliced`/`with`), iteración, `map`/`filter`/`reduce`, `Array.from`
 11. **Objetos**: literal, propiedades, shorthand, computed keys, spread, `Object.freeze`/`seal`, `Object.assign`
 12. **Destructuring**: arrays y objetos, defaults, renombrado, anidado
 13. **Colecciones**: `Map`, `Set`, `WeakMap`, `WeakSet` (cuándo usar cada uno)

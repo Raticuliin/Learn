@@ -4,6 +4,27 @@ Una entrada por módulo cerrado, formato compacto (ver `CLAUDE.md` raíz → "Bi
 
 ---
 
+## 2026-05-17. Módulo 10: Arrays
+
+- **Cubierto**: creación (literal, `Array.of`, `Array.from` con función mapeadora, gotcha `new Array(n)`), acceso (`at` con negativos, asignación a `.length`), mutadores (`push`/`pop`/`splice`/`sort`/`reverse` + trampa de `sort` por defecto con strings), no-mutadores modernos (`toSorted`/`toReversed`/`toSpliced`/`with`), `flat`/`flatMap`, `map`/`filter`/`reduce` formalmente (los traía de prestado desde módulo 8), patrones con `??` y `??=` para contar/agrupar, `find`/`findLast`/`some`/`every`. Filosofía "no mutes lo que recibes". Ejercicio `arrays.js` cerrado limpio.
+- **Notas vault**: [[js-arrays]], [[array-immutable-methods]], [[map-filter-reduce]].
+- **Pendiente**: nada bloqueante. Mejora notable — sin recurrencias `==`/`!=` esta vez, primera sesión limpia en ese eje. Matiz: en `every(item => item.name)` usó truthy check (válido para este caso, pero rechazaría `""`/`0`/`null` — se le señaló y captó la distinción). Aprovechó la versión encadenada `(acc[u.role] ??= []).push(u)` que se le presentó como avanzada/opcional.
+- **Estrenadas las dos reglas durables nuevas** ([Exercise templates](feedback_exercise-templates.md) y [No jargon in teaching](feedback_no-jargon-in-teaching.md)): el archivo `arrays.js` se generó con esqueleto (funciones `null`/`// TODO`, casos de prueba con resultado esperado al lado, hueco para escribir explicación en Parte 3d) y el README evitó nombres formales ("ES2023", "Change Array by Copy") describiendo los conceptos por lo que hacen. Iván rellenó los huecos directamente. Las dos reglas funcionan bien en la práctica.
+- **Decisión de plan**: movido `Array.fromAsync` del módulo 10 al 30 (iteradores asíncronos), donde encaja con su prerrequisito. README del curso actualizado.
+- **Siguiente**: Módulo 11, Objetos (literal, propiedades, shorthand, computed keys, spread, `Object.freeze`/`seal`, `Object.assign`).
+
+---
+
+## 2026-05-17. Módulo 9: Numbers
+
+- **Cubierto**: IEEE-754 (double 64 bits, por qué `0.1 + 0.2 !== 0.3`, `Number.EPSILON` como tolerancia, `MAX_SAFE_INTEGER`, `Infinity`), métodos estáticos de `Number` (`isNaN`/`isFinite`/`isInteger`/`isSafeInteger` vs globales que coercionan), `Math` esencial con idioms (`clamp`, `roundTo`, `randInt`), `parseInt` con radix obligatorio, BigInt (sintaxis `n`, no mezcla con `number`, división trunca, gotcha `JSON.stringify`). Ejercicio `numbers.js` ok con `approxEq`, `classifyNumber`, BigInt + replacer, helpers Math, `toNumberOrNull` blindado contra unsafe integers. Tres reglas durables nuevas guardadas en memoria a raíz de este módulo.
+- **Notas vault**: [[ieee-754-js]], [[js-numbers]], [[BigInt]].
+- **Pendiente**: tres recurrencias todavía vivas — (a) sigue usando `!=`/`==` por inercia aunque la mayoría de las veces lo cambia tras señalárselo. (b) En Parte 2 metió una regresión al refactorizar a helpers (`!Number.isFinite` sin argumento) — patrón "función truthy sin invocar" que no había aparecido antes. Vigilar en futuro. (c) En Parte 5 confundió `&&` lógico ("ambas se cumplen") con su semántica real ("último truthy o primer falsy"); refuerzo de operadores de módulo 4. Caso de borde `""` → `0` se quedó sin blindar (decisión consciente).
+- **Reglas durables nuevas guardadas en memoria** (aplican a TODOS los cursos): (1) Respetar orden curricular: si un ejercicio necesita algo no visto, regalarlo explícitamente. (2) Investigar antes de cada módulo con WebSearch/WebFetch. (3) Solo features oficiales y en uso real en el runtime objetivo; si Node no lo soporta o está en Stage temprano, FUERA sin excepciones. Aplicada retroactivamente quitando `Math.sumPrecise` del plan del curso (módulo 9) por falta de soporte V8/Node.
+- **Siguiente**: Módulo 10, Arrays (creación, mutadores vs inmutadores, iteración, `map`/`filter`/`reduce` formalmente, `Array.from`/`Array.fromAsync` — verificar estado de `Array.fromAsync` en Node antes de crear el README).
+
+---
+
 ## 2026-05-17. Módulo 8: Strings en profundidad
 
 - **Cubierto**: template literals (interpolación, multilínea, mención tagged templates), inmutabilidad reforzada (lección recurrente del módulo 3/5), métodos clave agrupados (búsqueda, extracción con `slice` y `at(-1)`, transformación, `replace` vs `replaceAll`, `split`), comparación + `localeCompare` (mención, profundizamos en módulo 64), iteración por code units vs code points, Unicode mínimo (`length` engaña con emojis, `codePointAt`), normalización NFC vs NFD y `normalize()`. Ejercicio `strings.js` ok con `buildEmail`, parsing de URL con `indexOf("://")` + segundo arg, `slugify` con `NFD + replace /[̀-ͯ]/g`, `wordCount` con bucle imperativo (eligió esa vía tras pedir respetar el orden didáctico), demos de Unicode con `eqLoose`. Trip oro: sus dos `"café"` resultaron uno NFC y otro NFD (copy-paste fortuito), demostrando empíricamente el problema.
