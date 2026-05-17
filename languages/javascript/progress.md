@@ -4,6 +4,17 @@ Una entrada por módulo cerrado, formato compacto (ver `CLAUDE.md` raíz → "Bi
 
 ---
 
+## 2026-05-17. Módulo 14: Fechas (Date legacy + Temporal)
+
+- **Cubierto**: `Date` legacy con las cuatro trampas (meses 0-indexed, parsing UTC vs local según formato, `toISOString` siempre a UTC, mutación con `setX`). Temporal (Stage 4 desde marzo 2026, ES2026): tipos separados (`PlainDate`/`PlainTime`/`PlainDateTime`/`ZonedDateTime`/`Duration`/`Instant`), inmutabilidad, aritmética con `add`/`subtract` encadenables, diferencias con `until` + `largestUnit`, comparación con `equals` y `compare` (gotcha: `===` siempre false), formato con `Intl.DateTimeFormat`, zonas IANA. Ejercicio `dates.js` cerrado limpio.
+- **Notas vault**: [[js-date-legacy]], [[Temporal]].
+- **Decisión de ejecución**: Node 24 LTS no trae Temporal por defecto (V8 lo encendió en abril 2026, después del corte de Node 24). Opciones: flag `--harmony-temporal`, polyfill `temporal-polyfill`, o migrar a Node 26 (Current, será LTS en octubre 2026). Para aprendizaje elegimos flag — mínima fricción, sin setup. En proyectos integradores 2 y 3, valorar polyfill.
+- **Pendiente**: nada bloqueante. Tres tropiezos en sesión: (a) **Fallo mío del esqueleto en Parte 1a**: dejé `.toISOString().slice(0,10)` con esperado "2026-05-17" sin considerar que Iván está en Madrid; salía "2026-05-16" por el desfase UTC. Iván detectó la inconsistencia él mismo ("pero pones que el esperado es 17") — corregido a `toLocaleDateString("sv-SE")` con comentario explicativo. Lección para futuros módulos: cuando un ejercicio toca fechas/zonas, considerar la zona del alumno al definir esperados, o usar formato local. (b) Confundió camelCase y PascalCase en `Temporal.Now.plainDateISO` — intentó `PlainDateIso` y `PlainDateISO`; tras señalar dos veces, captó la convención (`Now` es namespace con métodos camelCase, `PlainDate` es clase PascalCase). (c) En 2d puso offset `+02:00` para 31 de diciembre con `[Europe/Madrid]`; Temporal valida que offset y zona coincidan y CET (invierno) es +01:00 — Iván aprendió por error en tiempo real que Madrid tiene dos offsets según DST, y que dar solo la zona (sin offset) es lo idiomático.
+- **Detalles cosméticos al revisar**: en 1b dejó observación correcta ("dSlash me da un día anterior") pero sin el porqué — completado tras señalar. En 5c envolvió `Temporal.PlainDate.compare` en lambda redundante para `toSorted`; entendió que la función ya tiene la firma correcta y se puede pasar como referencia.
+- **Siguiente**: Módulo 15, JSON (`JSON.parse`/`stringify`, reviver/replacer, gotchas con tipos no serializables: `undefined`, `BigInt`, `Date`, `Map`/`Set`, ciclos). Hace de puente: cierra Fase 2 (Datos) y abre Fase 3 (Funciones avanzadas, closures).
+
+---
+
 ## 2026-05-17. Módulo 13: Colecciones (Map, Set, WeakMap, WeakSet)
 
 - **Cubierto**: Map (API uniforme `set`/`get`/`has`/`delete`/`size`, encadenable, init desde pares, claves de cualquier tipo con identidad por referencia, iterable en orden de inserción, `Map.groupBy`), Map vs Object (dinámico vs registro), Set (dedup, ops de conjunto `union`/`intersection`/`difference`/`symmetricDifference` + tests `isSubsetOf`/`isSupersetOf`/`isDisjointFrom`, Set-like como argumento), WeakMap/WeakSet (por qué débil, restricciones de no-iteración + claves objeto, caso "metadata por objeto" mutando in-place). Ejercicio `collections.js` cerrado limpio.
