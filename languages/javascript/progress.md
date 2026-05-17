@@ -4,6 +4,15 @@ Una entrada por módulo cerrado, formato compacto (ver `CLAUDE.md` raíz → "Bi
 
 ---
 
+## 2026-05-17. Módulo 7: Funciones I
+
+- **Cubierto**: declaración vs expresión (hoisting), parámetros por defecto (solo `undefined` activa, `null` no), referencia a parámetros previos en defaults, rest params vs `arguments` legacy, gotcha del ASI con `return`, arrow functions (sintaxis, return implícito, paréntesis para objeto literal, diferencias con `function`: `this` léxico — postergado a módulo 17 — sin `arguments`, no constructores). Patrón "función que devuelve función" como primer roce con closures. Ejercicio `functions.js` ok.
+- **Notas vault**: [[js-functions-basics]], [[default-parameters]], [[arrow-functions]].
+- **Pendiente**: en Parte 2 mezcló dos mecanismos al explicar `priceWithTax(100, null) === 100` ("`taxRate = null = 0`"). Tras pregunta-guía separó bien: (a) el default no se activa porque `null !== undefined`, (b) `1 + null` coerciona a `1`. Conexión limpia con [[type-coercion]]. En Parte 4 su versión "rota" del ASI usó `;` dentro del bloque (válido como labels) en vez de comas estilo objeto literal, que es la trampa real; se le mostró el escenario auténtico. Captó el concepto.
+- **Siguiente**: Proyecto integrador 1, `projects/cli-guessing-game/` (CLI Node: juego de adivinar número). Cubre fundamentos + control de flujo + funciones, sin clases ni async.
+
+---
+
 ## 2026-05-16. Módulo 6: Control de flujo
 
 - **Cubierto**: `if`/`else` con truthy/falsy, ternario, `switch` con `===` y fall-through (intencional vs olvido), bucles imperativos (`for`, `while`, `do...while`), `for...of` vs `for...in` y la trampa de `for...in` sobre arrays, `break`/`continue` y labels (con preferencia por refactor a función + `return`). Ejercicio `flow.js` ok.

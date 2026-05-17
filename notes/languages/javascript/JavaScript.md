@@ -10,7 +10,7 @@ MOC del curso de JavaScript. Índice cruzado del plan en [`languages/javascript/
 - [[js-operators]] · [[nullish-coalescing]] · [[optional-chaining]]
 - [[type-coercion]] · [[truthy-falsy]] · [[NaN]]
 - [[control-flow-js]] · [[switch-fall-through]] · [[for-in-vs-for-of]]
-- [[js-functions-basics]] · [[arrow-functions]]
+- [[js-functions-basics]] · [[default-parameters]] · [[arrow-functions]]
 
 ## Datos
 
