@@ -4,6 +4,17 @@ Una entrada por módulo cerrado, formato compacto (ver `CLAUDE.md` raíz → "Bi
 
 ---
 
+## 2026-05-17. Módulo 15: JSON. **Cierra Fase 2 (Datos)**.
+
+- **Cubierto**: `JSON.stringify` (compacto y pretty con espacios), las **tres categorías** de tipos no-JSON al serializar (se omiten silenciosamente / pierden info / lanzan), `toJSON` como hook personalizado, replacer como array (whitelist) y función, `JSON.parse` con reviver para rehidratar tipos perdidos (encadena con módulo 14 — `createdAt` string → `Temporal.PlainDate`), y BigInt sin pérdida con `JSON.rawJSON` + `context.source` (ES2025). Pequeñas sorpresas de la Parte 7 (asimetría de `undefined` en objeto vs array). Ejercicio `json.js` cerrado limpio.
+- **Notas vault**: [[json]].
+- **Fallo mío de orden curricular**: Parte 3 usé `class Money { constructor() {} toJSON() {} }` para enseñar `toJSON`, pero `class` está en módulo 24 — no estaba introducida. Iván lo detectó él mismo en un comentario en el código ("esto se supone que no lo hemos visto"). Le ofrecí dos opciones: aceptar el regalo puntual o rescribir como objeto plano con método `toJSON()` (que es lo importante pedagógicamente — `toJSON` solo es una propiedad cualquiera que `stringify` busca, no necesita clase). Vigilar este error en futuros módulos de la Fase 2-3: cualquier ejemplo que use `class`/`this`/`new` debe esperar a Fase 4 o marcarse explícitamente como regalo.
+- **Pendiente**: nada. Iván pidió explicación adicional del `context` del reviver (tercer argumento) — entendió tras desglose: `context.source` = texto JSON original del valor antes de parsearse a `number`, único hueco para preservar BigInt fuera de `Number.MAX_SAFE_INTEGER`.
+- **Cierre de fase**: con este módulo se completa la **Fase 2 (Datos)** del curso (módulos 8-15: Strings, Numbers, Arrays, Objetos, Destructuring, Colecciones, Fechas, JSON). Tres sesiones, ritmo sostenido.
+- **Siguiente**: Módulo 16, **Funciones de primera clase** (callbacks, higher-order, paso de funciones como datos). Arranca Fase 3 (Funciones avanzadas y closures). Conceptualmente Iván ya las traía de prestado desde el módulo 8 (`map`/`filter`/`reduce`) — ahora se formaliza.
+
+---
+
 ## 2026-05-17. Módulo 14: Fechas (Date legacy + Temporal)
 
 - **Cubierto**: `Date` legacy con las cuatro trampas (meses 0-indexed, parsing UTC vs local según formato, `toISOString` siempre a UTC, mutación con `setX`). Temporal (Stage 4 desde marzo 2026, ES2026): tipos separados (`PlainDate`/`PlainTime`/`PlainDateTime`/`ZonedDateTime`/`Duration`/`Instant`), inmutabilidad, aritmética con `add`/`subtract` encadenables, diferencias con `until` + `largestUnit`, comparación con `equals` y `compare` (gotcha: `===` siempre false), formato con `Intl.DateTimeFormat`, zonas IANA. Ejercicio `dates.js` cerrado limpio.

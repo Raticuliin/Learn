@@ -21,7 +21,7 @@ MOC del curso de JavaScript. Índice cruzado del plan en [`languages/javascript/
 - [[destructuring]]
 - [[js-map]] · [[js-set]] · [[set-operations]] · [[weakmap-weakset]]
 - [[js-date-legacy]] · [[Temporal]]
-- [[JSON]]
+- [[json]]
 
 ## Funciones avanzadas
 
