@@ -4,6 +4,25 @@ Una entrada por módulo cerrado, formato compacto (ver `CLAUDE.md` raíz → "Bi
 
 ---
 
+## 2026-05-17. Módulo 8: Strings en profundidad
+
+- **Cubierto**: template literals (interpolación, multilínea, mención tagged templates), inmutabilidad reforzada (lección recurrente del módulo 3/5), métodos clave agrupados (búsqueda, extracción con `slice` y `at(-1)`, transformación, `replace` vs `replaceAll`, `split`), comparación + `localeCompare` (mención, profundizamos en módulo 64), iteración por code units vs code points, Unicode mínimo (`length` engaña con emojis, `codePointAt`), normalización NFC vs NFD y `normalize()`. Ejercicio `strings.js` ok con `buildEmail`, parsing de URL con `indexOf("://")` + segundo arg, `slugify` con `NFD + replace /[̀-ͯ]/g`, `wordCount` con bucle imperativo (eligió esa vía tras pedir respetar el orden didáctico), demos de Unicode con `eqLoose`. Trip oro: sus dos `"café"` resultaron uno NFC y otro NFD (copy-paste fortuito), demostrando empíricamente el problema.
+- **Notas vault**: [[js-strings]], [[template-literals]], [[unicode-in-js]], [[unicode-normalization]].
+- **Pendiente**: tres recurrencias que vigilar — (a) `for...in` sobre array volvió a aparecer en Parte 1 antes de corregirse (ya tres veces total con módulo 6 y proyecto integrador 1); el patrón "para arrays nunca `for...in`" sigue sin estar interiorizado. (b) En `slugify` ignoró la pista del README (`normalize("NFD")`) y usó `normalize()` por defecto (NFC), entendió la diferencia tras pista directa. (c) Tendencia a usar `!=`/`==` en lugar de `!==`/`===` sin pensarlo — funciona por casualidad pero rompe el principio del módulo 4.
+- **Nueva regla durable**: feedback memory guardada — si un ejercicio necesita algo no visto en el plan, debo avisarlo y darlo como regalo puntual, no asumir conocido. Se aplicó al instante: rediseñé `wordCount` con bucle imperativo en vez de `filter(Boolean)` (filter entra en módulo 10).
+- **Siguiente**: Módulo 9, Numbers (IEEE-754, BigInt, Math, Math.sumPrecise ES2026).
+
+---
+
+## 2026-05-17. Proyecto integrador 1: CLI Guessing Game
+
+- **Cubierto**: primer programa end-to-end en Node. Integra módulos 2-7 + intro mínima a `readline/promises` y `await` como herramienta de I/O (sin profundizar en async, que llega en módulo 36). `Math.random` + descomposición en funciones puras (`generateTarget`, `compareGuess`, `parseGuess`) separadas de la función `async` con I/O (`playGame`). Cumple los 6 requisitos del README.
+- **Notas vault**: ninguna nueva (patrones de diseño se sedimentan con práctica; conceptos JS ya cubiertos).
+- **Pendiente**: la lección recurrente del curso ya emerge fuerte aquí — **convertir/validar tipos en el borde, no dentro de funciones puras**. Cayó dos veces en el mismo error (con `min`/`max` y luego con `guess`); a la tercera ya lo aplicó solo. Patrón a vigilar cuando volvamos a tocar I/O. Detalles menores que NO aplicó al cerrar (opcionales, conscientes): conversión de `min`/`max` duplicada en vez de una sola vez, y `!Number.isNaN` redundante con `Number.isInteger`. No bloquean.
+- **Siguiente**: Módulo 8, Strings en profundidad (template literals, métodos, Unicode, normalización).
+
+---
+
 ## 2026-05-17. Módulo 7: Funciones I
 
 - **Cubierto**: declaración vs expresión (hoisting), parámetros por defecto (solo `undefined` activa, `null` no), referencia a parámetros previos en defaults, rest params vs `arguments` legacy, gotcha del ASI con `return`, arrow functions (sintaxis, return implícito, paréntesis para objeto literal, diferencias con `function`: `this` léxico — postergado a módulo 17 — sin `arguments`, no constructores). Patrón "función que devuelve función" como primer roce con closures. Ejercicio `functions.js` ok.

@@ -14,7 +14,7 @@ MOC del curso de JavaScript. Índice cruzado del plan en [`languages/javascript/
 
 ## Datos
 
-- [[js-strings]] · [[template-literals]]
+- [[js-strings]] · [[template-literals]] · [[unicode-in-js]] · [[unicode-normalization]]
 - [[js-numbers]] · [[BigInt]]
 - [[js-arrays]]
 - [[js-objects]] · [[object-freeze]]
