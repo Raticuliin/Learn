@@ -4,6 +4,16 @@ Una entrada por módulo cerrado, formato compacto (ver `CLAUDE.md` raíz → "Bi
 
 ---
 
+## 2026-05-17. Módulo 11: Objetos
+
+- **Cubierto**: literal, claves calculadas, shorthand de propiedad y método, acceso (punto/corchetes), `delete`, comprobación con `in` vs `Object.hasOwn` (incluida diferencia con heredadas — anticipo mínimo de prototipos), recorrer con `Object.keys`/`values`/`entries` + `for...of` + `Object.fromEntries`, copia/combinación con spread y `Object.assign` y su trampa superficial demostrada en vivo, congelar/sellar/preventExtensions, paso por referencia y `const` que no protege contenido, cierre con `Object.groupBy` conectando con el patrón `reduce` del módulo 10. Ejercicio `objects.js` cerrado limpio.
+- **Notas vault**: [[js-objects]], [[object-freeze]], [[pass-by-reference]], [[shallow-vs-deep-copy]].
+- **Pendiente**: nada bloqueante. Segunda sesión seguida sin recurrencias `==`/`!=` (regresión de módulos 3-9 parece estabilizada). Tres detalles menores al revisar: (a) en Parte 2a solo imprimió una de las dos lecturas pedidas; lo corrigió. (b) En Parte 2c usó `in` cuando la consigna pedía explícitamente `Object.hasOwn`; corregido tras señalar la diferencia con propiedades heredadas. (c) En Parte 3c imprimió con `console.log(key, ", ", value)` en vez de formatear con template literal; corregido a `\`${key}: ${value}\``. Nada recurrente, todo cosmético o de lectura.
+- **Trampa didáctica descubierta**: el README afirmaba "modo strict automático" en el archivo `.js`, que es falso al ejecutar con `node` sin `"type": "module"`. La asignación a un objeto congelado fallaba silenciosamente y el `try/catch` no atrapaba nada. Arreglado añadiendo `"use strict";` arriba del archivo y actualizando el README. Recordatorio para futuros módulos: hasta llegar a Fase 8 (ESM, módulo 43), los ejercicios del curso son scripts sueltos en modo sloppy — si un ejercicio depende de strict mode, hay que marcarlo explícitamente con la directiva.
+- **Siguiente**: Módulo 12, Destructuring (arrays y objetos, defaults, renombrado, anidado).
+
+---
+
 ## 2026-05-17. Módulo 10: Arrays
 
 - **Cubierto**: creación (literal, `Array.of`, `Array.from` con función mapeadora, gotcha `new Array(n)`), acceso (`at` con negativos, asignación a `.length`), mutadores (`push`/`pop`/`splice`/`sort`/`reverse` + trampa de `sort` por defecto con strings), no-mutadores modernos (`toSorted`/`toReversed`/`toSpliced`/`with`), `flat`/`flatMap`, `map`/`filter`/`reduce` formalmente (los traía de prestado desde módulo 8), patrones con `??` y `??=` para contar/agrupar, `find`/`findLast`/`some`/`every`. Filosofía "no mutes lo que recibes". Ejercicio `arrays.js` cerrado limpio.
