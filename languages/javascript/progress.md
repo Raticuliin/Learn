@@ -4,6 +4,25 @@ Una entrada por módulo cerrado, formato compacto (ver `CLAUDE.md` raíz → "Bi
 
 ---
 
+## 2026-05-17. Módulo 13: Colecciones (Map, Set, WeakMap, WeakSet)
+
+- **Cubierto**: Map (API uniforme `set`/`get`/`has`/`delete`/`size`, encadenable, init desde pares, claves de cualquier tipo con identidad por referencia, iterable en orden de inserción, `Map.groupBy`), Map vs Object (dinámico vs registro), Set (dedup, ops de conjunto `union`/`intersection`/`difference`/`symmetricDifference` + tests `isSubsetOf`/`isSupersetOf`/`isDisjointFrom`, Set-like como argumento), WeakMap/WeakSet (por qué débil, restricciones de no-iteración + claves objeto, caso "metadata por objeto" mutando in-place). Ejercicio `collections.js` cerrado limpio.
+- **Notas vault**: [[js-map]], [[js-set]], [[set-operations]], [[weakmap-weakset]].
+- **Pendiente**: nada bloqueante. Tres correcciones en Parte 6 (WeakMap): (a) inicializó con valor `0` (número) en vez de `{ count: 0 }` (objeto) — diseño igual de funcional pero no idiomático para "metadata"; en sloppy mode su `meta.count++` con `meta=0` fallaba silenciosamente vía autoboxing temporal (recordatorio de [[js-primitive-types]] módulo 3). Tras explicarle los dos diseños eligió el B. (b) Al cambiar a objeto, dejó la inicialización sin actualizar — solo cambió la función, no las dos líneas de `set`. Corrigió tras señalárselo. (c) Su versión de `registerClick` no manejaba el caso "elemento no registrado aún" que la consigna pedía explícitamente; tras señalarlo lo resolvió con ternario `meta ? meta.count++ : clickCounts.set(...)`. Le dejé el aviso de que el ternario sobre `meta` solo es seguro porque los valores guardados son siempre objetos truthy — patrón frágil si se permitieran valores primitivos (`0`, `""`, `null`).
+- **Lección recurrente vigilada**: en Parte 1a no encadenó los `set` aunque la pista lo sugería; sigue prefiriendo escribir cada `set` en su línea (estilo válido, no le insisto). Sin recurrencias de `==`/`!=` esta sesión.
+- **Siguiente**: Módulo 14, Fechas (`Date` legacy + **Temporal API**, ES2026). Verificar estado de Temporal en Node antes de crear README — la spec se quedó fuera de la edición ES2026 final pero la implementación está madura, hay que confirmar si Node lo trae sin flags o si hay que usar polyfill.
+
+---
+
+## 2026-05-17. Módulo 12: Destructuring
+
+- **Cubierto**: arrays (básico, skip con coma, defaults, rest, swap sin temporal), objetos (básico, renombrado, defaults, renombrar+default, rest), anidado (objetos/arrays mezclados, default sobre pieza intermedia para tolerar piezas opcionales — el `?.` no aplica dentro de un patrón), destructuring en parámetros de función con `= {}` para tolerar llamadas sin args. Ejercicio `destructuring.js` cerrado limpio.
+- **Notas vault**: [[destructuring]].
+- **Pendiente**: nada bloqueante. Tres puntos a vigilar: (a) **Trampa didáctica mía**: reusé nombres `first`/`second` entre Parte 1a y Parte 3b sin pensar — chocaron en el mismo scope con `const`. Lo corrigió tras pista; ajusté el enunciado a `firstItem`/`secondItem`. Recordatorio para futuros ejercicios: en un único archivo con todo en top-level, los nombres de variables se acumulan, hay que evitar colisiones cuando se reutilizan nombres genéricos. (b) En Parte 3d resolvió con `{ user: { name2 = "anon" } = {} }` (intentando sacar una propiedad llamada `name2`, que no existe). Funcionaba **por casualidad** porque el `user` también faltaba y entraba el default. Tras test mental con `response2 = { user: { name: "Ana" } }` captó el bug y lo corrigió a `{ user: { name: name2 = "anon" } = {} }` — la forma correcta de "renombrar al destructurar". Patrón similar al de módulo 9 (`!Number.isFinite` sin invocar): código que pasa los tests por suerte. (c) En Parte 4a dejó la versión vieja de `greet` además de la nueva — dos `function` declaradas con el mismo nombre, la segunda gana por hoisting pero queda código muerto. Tras señalar, borrado.
+- **Siguiente**: Módulo 13, Colecciones (`Map`, `Set`, `WeakMap`, `WeakSet`).
+
+---
+
 ## 2026-05-17. Módulo 11: Objetos
 
 - **Cubierto**: literal, claves calculadas, shorthand de propiedad y método, acceso (punto/corchetes), `delete`, comprobación con `in` vs `Object.hasOwn` (incluida diferencia con heredadas — anticipo mínimo de prototipos), recorrer con `Object.keys`/`values`/`entries` + `for...of` + `Object.fromEntries`, copia/combinación con spread y `Object.assign` y su trampa superficial demostrada en vivo, congelar/sellar/preventExtensions, paso por referencia y `const` que no protege contenido, cierre con `Object.groupBy` conectando con el patrón `reduce` del módulo 10. Ejercicio `objects.js` cerrado limpio.
