@@ -4,6 +4,16 @@ Una entrada por módulo cerrado, formato compacto (ver `CLAUDE.md` raíz → "Bi
 
 ---
 
+## 2026-05-18. Módulo 16: Funciones de primera clase. **Arranca Fase 3 (Funciones avanzadas)**.
+
+- **Cubierto**: funciones como valores (array y objeto de funciones), callbacks pasados a HOF custom (`repeat`, `applyTwice`), funciones que devuelven funciones (`makeMultiplier`, `makeTagger` — son closures de hecho, sin formalizar todavía; mecanismo queda para módulo 18), HOF a mano (`myFilter`, `myMap`), trampa `fn` vs `fn()` con `forEach(console.log)` vs `forEach(console.log())`. Ejercicio `first-class.js` cerrado limpio.
+- **Notas vault**: [[callbacks]], [[higher-order-functions]].
+- **Nueva regla durable guardada en memoria**: [Module completeness](feedback_module-completeness.md) — antes de cerrar el README de un módulo, hacer checklist exhaustivo del alcance y verificar item por item. Surgió tras Iván auditar lo cubierto en Fase 1-2 y encontrar huecos básicos: `||=`/`&&=`/`??=` (módulo 4), `indexOf`/`includes`/`slice`/`join`/`Array.isArray`/`entries`/`keys`/`values` (módulo 10), getters/setters en objeto literal (módulo 11), destructuring con propiedad calculada `{ [key]: value }` (módulo 12), separadores numéricos `1_000_000` (módulo 9), `toFixed`/`toPrecision`/`toExponential` (módulo 9), tagged templates a fondo (módulo 8), reglas completas de ASI (módulo 1/2), operador `**` (módulo 4). Decisión: NO rehacer módulos anteriores. Rellenar al vuelo cuando aparezcan de forma natural en futuros módulos/proyectos, marcados como "esto entraba en módulo X pero no lo cubrí ahí, 30 segundos y seguimos".
+- **Pendiente**: nada bloqueante. Detalles: usó `(n) => n * -1` para negar (idiomático sería `-n` con unario menos del módulo 4); `let item` en Parte 4a y `const item` en Parte 4b — regla `const por defecto` no recurrente todavía pero ya pasó dos veces en el curso (módulo 1 también). Uso espontáneo de `**` en Parte 1 (uno de los huecos pendientes) — ya lo maneja, registrado. Análisis Parte 5 preciso al segundo intento tras pista sobre orden de evaluación.
+- **Siguiente**: Módulo 17, **`this` y binding** (binding dinámico vs léxico de arrow, `call`/`apply`/`bind`). Iván viene de Java, donde `this` es estable y léxico; conviene avisar de entrada que el `this` de JS dinámico es la trampa fundamental.
+
+---
+
 ## 2026-05-17. Módulo 15: JSON. **Cierra Fase 2 (Datos)**.
 
 - **Cubierto**: `JSON.stringify` (compacto y pretty con espacios), las **tres categorías** de tipos no-JSON al serializar (se omiten silenciosamente / pierden info / lanzan), `toJSON` como hook personalizado, replacer como array (whitelist) y función, `JSON.parse` con reviver para rehidratar tipos perdidos (encadena con módulo 14 — `createdAt` string → `Temporal.PlainDate`), y BigInt sin pérdida con `JSON.rawJSON` + `context.source` (ES2025). Pequeñas sorpresas de la Parte 7 (asimetría de `undefined` en objeto vs array). Ejercicio `json.js` cerrado limpio.
