@@ -4,6 +4,15 @@ Una entrada por módulo cerrado, formato compacto (ver `CLAUDE.md` raíz → "Bi
 
 ---
 
+## 2026-05-20. Módulo 18: Closures
+
+- **Cubierto**: mecanismo (función + variables del sitio donde se definió, vivas mientras la función exista), captura por referencia a la variable (no copia del valor), tres ideas estructurales (scope nuevo por cada llamada al creador, captura por referencia, retiene toda la cadena de scopes incluso lo no usado). Casos de uso: factory `makePrefixer`, estado privado `makeCounter` con `inc/dec/reset/get`, memoización con `Map` capturado. Bug del `for` con `var` (tres closures, todas devuelven 3), arreglo idiomático con `let` (binding por iteración), arreglo histórico con función envolvente auto-invocada manteniendo `var`. Memory leaks: closure retiene scope completo, conexión con [[weakmap-weakset]]. Ejercicio `closures.js` cerrado limpio, output correcto al ejecutar.
+- **Notas vault**: [[closures]].
+- **Pendiente**: nada bloqueante. Un atasco en 4b (la técnica antigua sin `let`): primer intento dejó la arrow envolvente definida sin invocar (`((j) => fnsVar.push(() => j))` sin el `(i)` final). Captó al señalárselo el paralelismo con `info("server up")` ejecuta vs `info` referencia. Pregunta de cierre sobre el nombre del parámetro (`j` vs poder llamarse `i`): contestó la idea estructural (nuevo scope por iteración) pero no entró al detalle del shadowing del nombre; se lo expliqué tras su respuesta — el nombre da igual porque parámetro = binding nuevo por llamada. En Parte 2 usó arrow expression-body con asignación (`inc: () => counter+=step`) que devuelve el nuevo valor; funcional, no idiomático para "método que no retorna" pero la consigna no lo exigía.
+- **Siguiente**: Módulo 19, **Recursión** (directa, mutua, estado actual de tail calls en V8/motores). Iván ya tiene closures, viene bien para recursión con acumulador en parámetro y para "función que devuelve función recursiva".
+
+---
+
 ## 2026-05-19. Módulo 17: `this` y binding
 
 - **Cubierto**: regla central (`this` se decide al invocar, no al declarar), las cuatro formas de invocar (método / suelta / `new` / explícita), trampa de perder `this` al pasar método como callback y dos arreglos (`bind` y arrow wrapper que vuelve a llamar con punto), `call`/`apply`/`bind` con sus diferencias (cuándo se invoca, cómo pasan los args), `bind` para partial application con `null` como `thisArg`, arrow functions sin `this` propio (resuelven `this` como variable léxica), por qué arrow rompe como método de objeto pero brilla como callback dentro de método. Ejercicio `this-binding.js` cerrado limpio.
