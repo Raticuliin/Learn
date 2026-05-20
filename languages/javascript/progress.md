@@ -4,6 +4,16 @@ Una entrada por módulo cerrado, formato compacto (ver `CLAUDE.md` raíz → "Bi
 
 ---
 
+## 2026-05-19. Módulo 17: `this` y binding
+
+- **Cubierto**: regla central (`this` se decide al invocar, no al declarar), las cuatro formas de invocar (método / suelta / `new` / explícita), trampa de perder `this` al pasar método como callback y dos arreglos (`bind` y arrow wrapper que vuelve a llamar con punto), `call`/`apply`/`bind` con sus diferencias (cuándo se invoca, cómo pasan los args), `bind` para partial application con `null` como `thisArg`, arrow functions sin `this` propio (resuelven `this` como variable léxica), por qué arrow rompe como método de objeto pero brilla como callback dentro de método. Ejercicio `this-binding.js` cerrado limpio.
+- **Notas vault**: [[this-binding]], [[call-apply-bind]].
+- **Pendiente**: nada bloqueante. Tres tropiezos en sesión: (a) en 2b ató con `bind(user)` en vez de `bind(greeter)` — funcionaba por casualidad porque ambos objetos tenían `name: "Iván"`; corregido tras señalar. Patrón ya visto en módulos anteriores: tests pasan por suerte cuando los datos coinciden (módulo 9 con `!Number.isFinite` sin invocar, módulo 12 con `{ user: { name2 } }`). (b) En 5b intentó resolver `greetAllBroken` con `for...of` evitando el callback — el ejercicio pedía precisamente provocar la rotura con `function` tradicional dentro de `forEach`. Tras releer enunciado lo reescribió y vio el `TypeError` esperado. (c) Explicación final del ejercicio: primera versión dijo "function tradicional genera un this nuevo por defecto en undefined" — el `this` de una function no es "undefined por defecto", depende del modo de invocación (en 5b sale undefined porque `forEach` invoca como llamada suelta en strict mode). Tras matizarlo lo dejó como "no es el que queremos", que es la idea correcta sin meterse en la teoría. Resto del archivo limpio a la primera.
+- **Aviso de Java cumplido**: el README abría con el contraste explícito Java/JS sobre `this` (estable y léxico vs dinámico). Iván no necesitó refuerzos del aviso durante la sesión — captó la diferencia en el primer ejemplo de Parte 1.
+- **Siguiente**: Módulo 18, **Closures** (cómo funcionan, casos de uso, gotchas clásicos). Iván ya tuvo el primer roce informal en módulo 16 con `makeMultiplier`/`makeTagger`; ahora se formaliza el mecanismo (entorno léxico, captura por referencia, fugas de memoria, patrón módulo).
+
+---
+
 ## 2026-05-18. Módulo 16: Funciones de primera clase. **Arranca Fase 3 (Funciones avanzadas)**.
 
 - **Cubierto**: funciones como valores (array y objeto de funciones), callbacks pasados a HOF custom (`repeat`, `applyTwice`), funciones que devuelven funciones (`makeMultiplier`, `makeTagger` — son closures de hecho, sin formalizar todavía; mecanismo queda para módulo 18), HOF a mano (`myFilter`, `myMap`), trampa `fn` vs `fn()` con `forEach(console.log)` vs `forEach(console.log())`. Ejercicio `first-class.js` cerrado limpio.
