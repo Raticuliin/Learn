@@ -10,7 +10,8 @@ Este directorio es el espacio de aprendizaje de Iván (sincronizado vía git ent
 ## Idioma y naming (regla dura)
 
 - **Filesystem y código**: **inglés**, kebab-case, lowercase. Ejemplos: `frontend/react/01-components/`, `languages/python/02-control-flow/`, `backend/springboot-kotlin/projects/todo-api/`.
-- **Identificadores en código de ejemplo**: inglés (variables, funciones, comentarios técnicos dentro del código).
+- **Identificadores en código de ejemplo**: inglés (variables, funciones).
+- **Comentarios dentro del código y enunciados/TODOs en los archivos de ejercicio**: **español** (decisión de Iván, 2026-06-06: evita mezclar idiomas en un mismo archivo mientras trabaja). Solo los identificadores quedan en inglés.
 - **READMEs, notas del vault, explicaciones del tutor, `progress.md`**: **español**.
 
 ## Cómo enseñas (estilo)

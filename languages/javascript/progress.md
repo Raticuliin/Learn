@@ -4,6 +4,16 @@ Una entrada por módulo cerrado, formato compacto (ver `CLAUDE.md` raíz → "Bi
 
 ---
 
+## 2026-06-06. Módulo 19: Recursión
+
+- **Cubierto**: anatomía (caso base + recursivo), call stack y desbordamiento (`RangeError`), acumulador en parámetro y posición de cola, estado real de tail calls en 2026 (PTC en spec desde ES2015 pero solo JavaScriptCore/Safari/Bun lo implementa; V8/Node y SpiderMonkey NO → la versión con acumulador desborda igual en Node), recursión mutua, recursión sobre estructuras anidadas (`deepSum`, `flatten`), y conversión a iteración con pila explícita en el heap. Ejercicio `recursion.js` cerrado, output correcto.
+- **Notas vault**: [[recursion]].
+- **Pendiente**: nada bloqueante. Tropiezos: (a) Parte 3 `factorialAcc` dos bugs — llamó a `factorial` en vez de a sí misma (segundo arg ignorado, daba 6 en vez de 24) y caso base devolvía `1` en vez de `acc`; corregidos por mí a petición ("corrige todo"). (b) Parte 6 `flatten`: primer intento usó `deepSum` (devuelve número) en vez de recursión propia, y `push(array)` en vez de spread `push(...flatten(sub))`; lo arregló él tras dos pistas (traza paso a paso). Resto (factorial, sumArray con slice, isEven/isOdd, deepSum) limpio a la primera. Detalle: en Parte 7 dijo que no lo había explicado pese a estar en README §4 — se lo reexpliqué en chat y rellené la respuesta.
+- **Cambio de convención (durable)**: a mitad de módulo Iván pidió que **comentarios de código y enunciados/TODOs vayan en español** (solo identificadores en inglés) — mezclar idiomas en el mismo archivo le incomoda. Actualizado `CLAUDE.md` raíz → "Idioma y naming" y guardado en memoria [Idioma en ejercicios](../../[memoria]feedback_exercise-language). Aplica a TODOS los cursos desde ahora.
+- **Siguiente**: Módulo 20, **Composición funcional** (IIFE, currying, partial application, pipe/compose).
+
+---
+
 ## 2026-05-20. Módulo 18: Closures
 
 - **Cubierto**: mecanismo (función + variables del sitio donde se definió, vivas mientras la función exista), captura por referencia a la variable (no copia del valor), tres ideas estructurales (scope nuevo por cada llamada al creador, captura por referencia, retiene toda la cadena de scopes incluso lo no usado). Casos de uso: factory `makePrefixer`, estado privado `makeCounter` con `inc/dec/reset/get`, memoización con `Map` capturado. Bug del `for` con `var` (tres closures, todas devuelven 3), arreglo idiomático con `let` (binding por iteración), arreglo histórico con función envolvente auto-invocada manteniendo `var`. Memory leaks: closure retiene scope completo, conexión con [[weakmap-weakset]]. Ejercicio `closures.js` cerrado limpio, output correcto al ejecutar.
