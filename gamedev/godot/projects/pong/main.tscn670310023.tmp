@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dv1uuf8ekm2l5"]
+
+[ext_resource type="PackedScene" uid="uid://nsb1jd03tedd" path="res://pala.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://cbo4q8whw0r7r" path="res://pala.gd" id="2_0xm2m"]
+
+[node name="Main" type="Node2D" unique_id=1934373718]
+
+[node name="Pala izuierda" parent="." unique_id=199019447 instance=ExtResource("1_ig7tw")]
+offset_left = 43.0
+offset_top = 138.0
+offset_right = 83.0
+offset_bottom = 178.0
+script = ExtResource("2_0xm2m")
+
+[node name="Pala derecha" parent="." unique_id=1278780103 instance=ExtResource("1_ig7tw")]
+offset_left = 588.0
+offset_top = 126.0
+offset_right = 628.0
+offset_bottom = 166.0
+
+[node name="Label" type="Label" parent="." unique_id=374819067]
+offset_left = 165.0
+offset_top = 17.0
+offset_right = 250.0
+offset_bottom = 68.0
+text = "TEST"
+
+[node name="Label2" type="Label" parent="." unique_id=612803474]
+offset_left = 475.0
+offset_top = 22.0
+offset_right = 560.0
+offset_bottom = 73.0
+text = "TEST"
+
+[node name="Pelota" type="ColorRect" parent="." unique_id=683283194]
+offset_left = 346.0
+offset_top = 170.0
+offset_right = 386.0
+offset_bottom = 210.0
+scale = Vector2(0.5, 0.5)

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://nsb1jd03tedd"]
+
+[ext_resource type="Script" uid="uid://cbo4q8whw0r7r" path="res://pala.gd" id="1_mnhl1"]
+
+[node name="Pala" type="ColorRect" unique_id=199019447]
+offset_right = 20.0
+offset_bottom = 200.0
+script = ExtResource("1_mnhl1")

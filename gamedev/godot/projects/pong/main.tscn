@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dv1uuf8ekm2l5"]
+
+[ext_resource type="Script" uid="uid://dvo8qc6y3y1ly" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://nsb1jd03tedd" path="res://pala.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://cflxyqbcxhe4o" path="res://pelota.gd" id="2_0xm2m"]
+
+[node name="Main" type="Node2D" unique_id=1934373718]
+script = ExtResource("1_h2yge")
+
+[node name="PaddleL" parent="." unique_id=199019447 instance=ExtResource("1_ig7tw")]
+offset_left = 20.0
+offset_top = 140.0
+offset_right = 40.0
+offset_bottom = 340.0
+key_up = 87
+key_down = 83
+
+[node name="PaddleR" parent="." unique_id=1278780103 instance=ExtResource("1_ig7tw")]
+offset_left = 610.0
+offset_top = 140.0
+offset_right = 630.0
+offset_bottom = 340.0
+key_up = 4194320
+key_down = 4194322
+
+[node name="MarcadorP1" type="Label" parent="." unique_id=374819067]
+offset_left = 178.0
+offset_top = 19.0
+offset_right = 215.0
+offset_bottom = 50.0
+text = "0"
+
+[node name="MarcadorP2" type="Label" parent="." unique_id=612803474]
+offset_left = 475.0
+offset_top = 22.0
+offset_right = 521.0
+offset_bottom = 53.0
+text = "0"
+
+[node name="Pelota" type="ColorRect" parent="." unique_id=683283194 node_paths=PackedStringArray("paddleL", "paddleR")]
+offset_left = 322.0
+offset_top = 197.0
+offset_right = 342.0
+offset_bottom = 217.0
+script = ExtResource("2_0xm2m")
+paddleL = NodePath("../PaddleL")
+paddleR = NodePath("../PaddleR")
+
+[connection signal="score" from="Pelota" to="." method="_on_pelota_score"]

@@ -42,7 +42,7 @@ Referencia viva: [[godot-nodes-overview]] — mapa de nodos que crece con el cur
 23. [[csharp-in-godot]] — puente a C#
 
 ## Proyectos
-- Pong (tras módulo 4)
+- Pong (tras módulo 4) ✓
 - Plataformas 2D (tras módulo 11)
 - Top-down con inventario y guardado (tras módulo 16)
 - Proyecto final (cross-área)

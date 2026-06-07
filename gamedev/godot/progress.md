@@ -6,6 +6,22 @@ Plan completo: ver `README.md`. MOC del vault: `notes/gamedev/godot/Godot.md`.
 
 ---
 
+## 2026-06-07. Proyecto 1: Pong
+
+- **Cubierto**: integrador de módulos 1-4. Pong 2 jugadores: input por `@export var key: Key` configurado por instancia, pelota `velocity: Vector2` con rebote, colisión pala-pelota con `Rect2.intersects` (recalculado cada frame + check de dirección anti-sticky), marcador vía señal propia `score(player)` conectada por **editor**. Todos los criterios del brief ok.
+- **Notas vault**: refuerza [[signals]], [[gdscript-essentials]].
+- **Peleado**: `scale` no afecta a `.size` (usar `size` en colisiones); una `var` de clase se inicializa antes de que exista el árbol (mismo caso de `@onready`); `intersects` es de `Rect2`, no del nodo. Ajustes de geometría (size/scale) en los `.tscn` los hizo el tutor.
+- **Pendiente (opcional)**: pulido (código muerto en `main.gd`, duplicación del reset, `;`/paréntesis sobrantes) y bug menor: el reset no invierte `velocity`, la pelota sale siempre hacia el mismo lado. Stretch no hechos.
+- **Siguiente**: Módulo 5, Input.
+
+## 2026-06-07. Módulo 4: Señales
+
+- **Cubierto**: señales como observer del motor; las dos mitades (`connect` = cable, `emit` = disparo, y que emitir no llama a nada sin conexión previa); señales integradas (`Timer.timeout`) y propias (`signal milestone_reached`); conectar por código y por editor. Ejercicio `practice/04-signals/` ok (contador que para en 5 vía señal propia).
+- **Notas vault**: [[signals]].
+- **Aclarado**: `$Timer` vs `@onready` (el "no cargado" depende de *cuándo* usas `$`, no del `$`); README del módulo reescrito con más profundidad a petición de Iván.
+- **Pendiente**: probó solo la conexión por código; la del editor queda pendiente de tocar en el Pong. Stretch (múltiplos de 5 + modulate) no hecho.
+- **Siguiente**: Proyecto 1, Pong (integra módulos 1-4).
+
 ## 2026-06-07. Módulo 3: GDScript esencial
 
 - **Cubierto**: `extends`, `_ready`/`_process(delta)`, `@export`, `@onready`, acceso con `$`, movimiento independiente de FPS con `delta`. Ejercicio `practice/03-gdscript-essentials/` ok (Label que se mueve, `print` en `_ready`, `speed` por Inspector).

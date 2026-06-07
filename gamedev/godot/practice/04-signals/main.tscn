@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://d3uiobwhvjh8c"]
+
+[ext_resource type="Script" uid="uid://c5108jyolyfaf" path="res://04-signals/main.gd" id="1_7bccw"]
+
+[node name="Main" type="Node2D" unique_id=2011133941]
+script = ExtResource("1_7bccw")
+
+[node name="Label" type="Label" parent="." unique_id=1140858483]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0"
+
+[node name="Timer" type="Timer" parent="." unique_id=769269481]
+autostart = true
