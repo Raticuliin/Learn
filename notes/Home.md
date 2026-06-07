@@ -10,7 +10,7 @@ Portada del vault. Desde aquí accedes a todos los MOCs de cursos y a las áreas
 
 ### Lenguajes
 
-- [[JavaScript]] — en curso · módulos 1-3 cerrados (sintaxis, bindings, primitivos)
+- [[JavaScript]]
 - **TypeScript** — previsto
 - **Python** — previsto
 - **Kotlin** — previsto
@@ -25,6 +25,10 @@ Portada del vault. Desde aquí accedes a todos los MOCs de cursos y a las áreas
 - **Spring Boot (Kotlin)** — previsto
 - **Spring Boot (Java)** — previsto
 - **Node.js / Express** — previsto
+
+### Game dev
+
+- [[Godot]]
 
 ### Otros (cuando emerjan)
 

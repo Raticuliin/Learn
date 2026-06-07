@@ -91,7 +91,7 @@ Crea `<bucket>/<x>/01-<concepto>/` con su `README.md` (objetivos, explicación, 
 └── backend/                     ┘
 ```
 
-**Buckets vivos hoy**: `languages/`, `frontend/`, `backend/`.
+**Buckets vivos hoy**: `languages/`, `frontend/`, `backend/`, `gamedev/`.
 
 **Buckets futuros reconocidos** (cuando los abras, usa estos nombres canónicos — no inventes otros): `mobile/`, `infra/`, `databases/`, `algorithms/`, `data-structures/`, `patterns/`, `projects/`. Si surge la necesidad de un bucket que no está en esta lista, **primero acuérdalo con Iván**.
 

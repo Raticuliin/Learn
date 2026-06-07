@@ -49,6 +49,16 @@ target/
 .gradle/
 *.iml
 
+# Godot
+# Caché del editor/motor: se regenera sola, nunca va a git.
+**/.godot/
+# Mono / C# (cuando lleguemos al módulo de C#)
+**/.mono/
+**/mono_crash.*.json
+**/data_*/
+# Builds exportados
+**/builds/
+
 # Otros builds
 out/
 tmp/

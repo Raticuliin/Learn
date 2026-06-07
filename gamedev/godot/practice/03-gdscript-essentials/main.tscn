@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://btgfed8mdres"]
+
+[ext_resource type="Script" uid="uid://diqepnxrvff2u" path="res://03-gdscript-essentials/main.gd" id="1_tceam"]
+
+[node name="Main" type="Node2D" unique_id=1920590025]
+script = ExtResource("1_tceam")
+speed = 10.0
+
+[node name="Label" type="Label" parent="." unique_id=1875038731]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Hola"

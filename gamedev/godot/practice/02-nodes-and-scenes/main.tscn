@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dcmsknuo3egrc"]
+
+[ext_resource type="PackedScene" uid="uid://d0538xp5h5xja" path="res://02-nodes-and-scenes/star.tscn" id="1_civod"]
+
+[node name="Main" type="Node2D" unique_id=622947617]
+
+[node name="Star" parent="." unique_id=695356855 instance=ExtResource("1_civod")]
+position = Vector2(342, 173)
+scale = Vector2(2, 2)
+
+[node name="Star2" parent="." unique_id=569979318 instance=ExtResource("1_civod")]
+position = Vector2(286, 344)
+
+[node name="Star3" parent="." unique_id=2078608981 instance=ExtResource("1_civod")]
+position = Vector2(703, 283)

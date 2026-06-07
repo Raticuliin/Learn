@@ -5,16 +5,21 @@ Solo decisiones meta del proyecto (convenciones, reorganizaciones cross-curso). 
 Cursos activos con bitácora propia:
 
 - [JavaScript](languages/javascript/progress.md)
+- [Godot](gamedev/godot/progress.md)
 
 Las más recientes arriba.
 
 ---
 
-## 2026-05-16. Hoja de ruta de cursos hacia un proyecto fullstack
+## 2026-06-07. Nuevo bucket canónico: `gamedev/`
 
-- **Objetivo final**: app personal con stack **Next.js + Supabase + Drizzle + Vercel** (proyecto cross-area, irá a `projects/<nombre>/` cuando se materialice).
-- **Orden acordado**: JS (hasta Fase 6 + Fase 8) -> TS completo -> React **directo en TS** -> Next.js (incluye Vercel como módulos finales) -> PostgreSQL (decidir si curso completo o mini-módulo) -> Supabase (incluye Drizzle como módulos internos) -> la app.
-- **Razón de React en TS desde día uno**: base de Java/Spring de Iván hace TS muy accesible; evita migración mental posterior.
+- **Decisión**: se añade `gamedev/` a la lista de buckets canónicos (no estaba en
+  la lista original del `CLAUDE.md`). Acordado con Iván al arrancar el curso de Godot.
+- **Convención de segundo nivel**: motor con su lenguaje propio → solo el motor
+  (`gamedev/godot/` para GDScript). Variante multi-lenguaje → `<motor>-<lang>`
+  (`gamedev/godot-csharp/` si algún día se separa C#).
+- **Curso Godot**: GDScript primero, puente a C# al final. 23 módulos, 2D +
+  arquitectura + producción. Sin 3D ni multiplayer por ahora (quitados por Iván).
 
 ## 2026-05-16. Arranque del repo
 

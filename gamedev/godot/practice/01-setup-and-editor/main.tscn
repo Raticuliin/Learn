@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bylftunuhv7qc"]
+
+[node name="Node2D" type="Node2D" unique_id=1400448213]
+
+[node name="Label" type="Label" parent="." unique_id=2030967055]
+offset_right = 703.0
+offset_bottom = 108.0
+text = "Hola mundo"
