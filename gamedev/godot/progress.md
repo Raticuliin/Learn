@@ -9,7 +9,7 @@ Plan completo: ver `README.md`. MOC del vault: `notes/gamedev/godot/Godot.md`.
 ## 2026-06-17. Módulo 5: GDScript a fondo
 
 - **Cubierto**: `Array[T]` y `Dictionary[K,V]` tipados, `enum`, `match` con pattern matching y comodín `_`, `class_name` + herencia + `super`, lambdas (`Callable`) con `map`/`filter`/`reduce`/`sort_custom`, `await` con timer y señales (corrutinas), grupos con `add_to_group`/`call_group`/`get_nodes_in_group`. Ejercicio `practice/05-gdscript-deep/` ok.
-- **Notas vault**: ninguna nueva (conceptos cubiertos en el README del módulo).
+- **Notas vault**: [[gdscript-deep]].
 - **Aclarado**: `RefCounted` vs `Node` — los grupos son del árbol de escena, `Enemy extends RefCounted` no puede estar en un grupo; `add_to_group` es API de `Node`.
 - **Pendiente**: nada.
 - **Siguiente**: Módulo 6, Math para juegos.
