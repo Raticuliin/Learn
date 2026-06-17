@@ -6,13 +6,29 @@ Plan completo: ver `README.md`. MOC del vault: `notes/gamedev/godot/Godot.md`.
 
 ---
 
+## 2026-06-17. Módulo 5: GDScript a fondo
+
+- **Cubierto**: `Array[T]` y `Dictionary[K,V]` tipados, `enum`, `match` con pattern matching y comodín `_`, `class_name` + herencia + `super`, lambdas (`Callable`) con `map`/`filter`/`reduce`/`sort_custom`, `await` con timer y señales (corrutinas), grupos con `add_to_group`/`call_group`/`get_nodes_in_group`. Ejercicio `practice/05-gdscript-deep/` ok.
+- **Notas vault**: ninguna nueva (conceptos cubiertos en el README del módulo).
+- **Aclarado**: `RefCounted` vs `Node` — los grupos son del árbol de escena, `Enemy extends RefCounted` no puede estar en un grupo; `add_to_group` es API de `Node`.
+- **Pendiente**: nada.
+- **Siguiente**: Módulo 6, Math para juegos.
+
+---
+
+## 2026-06-09. Replanificación del curso: 23 → 31 módulos
+
+- **Decisión**: plan ampliado para cubrir las áreas del manual oficial que aplican a 2D. Nuevos módulos: GDScript a fondo (5), math para juegos (6), assets pipeline (9), navigation (13), animación avanzada (24), rendering 2D (25), i18n (28), editor plugins (29). El resto se renumera (Input pasa de 5 a 7). 3D y multiplayer quedan anotados como bloques extra opcionales al final.
+- **Afecta**: `README.md` del curso y MOC [[Godot]] actualizados; los proyectos 2 y 3 pasan a cerrar los módulos 15 y 20.
+- **Siguiente**: Módulo 5, GDScript a fondo (en curso).
+
 ## 2026-06-07. Proyecto 1: Pong
 
 - **Cubierto**: integrador de módulos 1-4. Pong 2 jugadores: input por `@export var key: Key` configurado por instancia, pelota `velocity: Vector2` con rebote, colisión pala-pelota con `Rect2.intersects` (recalculado cada frame + check de dirección anti-sticky), marcador vía señal propia `score(player)` conectada por **editor**. Todos los criterios del brief ok.
 - **Notas vault**: refuerza [[signals]], [[gdscript-essentials]].
 - **Peleado**: `scale` no afecta a `.size` (usar `size` en colisiones); una `var` de clase se inicializa antes de que exista el árbol (mismo caso de `@onready`); `intersects` es de `Rect2`, no del nodo. Ajustes de geometría (size/scale) en los `.tscn` los hizo el tutor.
 - **Pendiente (opcional)**: pulido (código muerto en `main.gd`, duplicación del reset, `;`/paréntesis sobrantes) y bug menor: el reset no invierte `velocity`, la pelota sale siempre hacia el mismo lado. Stretch no hechos.
-- **Siguiente**: Módulo 5, Input.
+- **Siguiente**: Módulo 5 (tras la replanificación del 2026-06-09: GDScript a fondo, no Input).
 
 ## 2026-06-07. Módulo 4: Señales
 

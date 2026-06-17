@@ -1,0 +1,24 @@
+# Normalización de finales de línea: LF en el repo,
+# checkout según plataforma (evita diffs fantasma entre máquinas).
+* text=auto
+
+# Godot escribe siempre LF, en cualquier plataforma — forzamos LF también en el working tree.
+*.gd text eol=lf
+*.gdshader text eol=lf
+*.tscn text eol=lf
+*.tres text eol=lf
+*.import text eol=lf
+*.cfg text eol=lf
+*.uid text eol=lf
+
+# Binarios: que git ni los toque ni intente diffearlos como texto.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.svg text
+*.ogg binary
+*.wav binary
+*.mp3 binary
+*.ttf binary
+*.otf binary

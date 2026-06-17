@@ -7,8 +7,10 @@ fundamentos de programación) pero que **nunca ha tocado un motor de juegos**.
 - **Lenguaje**: GDScript primero (dominar el motor sin fricción). Puente a **C#**
   en el último módulo.
 - **Versión**: Godot 4.6 (estable desde enero 2026).
-- **Alcance**: 2D + arquitectura + producción. Sin 3D ni multiplayer por ahora
-  (se pueden añadir más adelante como bloque extra).
+- **Alcance**: 2D + arquitectura + producción, cubriendo las áreas del manual
+  oficial que aplican a 2D (incluye navigation, assets pipeline, rendering 2D,
+  i18n y editor plugins). Sin 3D ni multiplayer por ahora (bloques extra
+  opcionales al final).
 
 Cada módulo vive en su carpeta `NN-concepto/` con su propio `README.md`
 (objetivos, explicación, código de ejemplo, enunciado del ejercicio).
@@ -61,56 +63,79 @@ gamedev/godot/
 > 🎮 **Proyecto 1 — Pong** (`projects/pong/`): input, movimiento, colisión simple,
 > marcador, señales. Integra los módulos 1-4.
 
-### Bloque 2 · Desarrollo 2D
-5. **Input** (`05-input/`) — Input Map, acciones, polling vs eventos.
-6. **Física y movimiento 2D** (`06-physics-2d/`) — `CharacterBody2D`,
+### Bloque 2 · GDScript a fondo + Desarrollo 2D
+5. **GDScript a fondo** (`05-gdscript-deep/`) — typed arrays/dictionaries, `match`,
+   `class_name` y clases custom + herencia, enums, lambdas/`Callable`,
+   `await`/coroutines, grupos de nodos (`add_to_group`, `call_group`).
+6. **Math para juegos** (`06-game-math/`) — `Vector2` a fondo, `lerp`/`move_toward`/
+   `lerp_angle`, transforms, distancias/ángulos, easing.
+7. **Input** (`07-input/`) — Input Map, acciones, polling vs eventos.
+8. **Física y movimiento 2D** (`08-physics-2d/`) — `CharacterBody2D`,
    `RigidBody2D`, `Area2D`, collision layers/masks.
-7. **Sprites y animación** (`07-sprites-and-animation/`) — `AnimatedSprite2D`,
-   `AnimationPlayer`, `SpriteFrames`.
-8. **TileMaps y niveles** (`08-tilemaps/`) — `TileMapLayer`, tilesets, colisiones
-   de tiles.
-9. **Cámara y parallax** (`09-camera-and-parallax/`) — `Camera2D`, límites,
-   `Parallax2D`.
-10. **UI / Control nodes** (`10-ui-control-nodes/`) — `Control`, contenedores,
+9. **Assets pipeline / importación** (`09-assets-import/`) — cómo importa Godot,
+   settings de import, reimport, organización de assets.
+10. **Sprites y animación** (`10-sprites-and-animation/`) — `AnimatedSprite2D`,
+    `AnimationPlayer`, `SpriteFrames`.
+11. **TileMaps y niveles** (`11-tilemaps/`) — `TileMapLayer`, tilesets, colisiones
+    de tiles.
+12. **Cámara y parallax** (`12-camera-and-parallax/`) — `Camera2D`, límites,
+    `Parallax2D`.
+13. **Navigation / pathfinding** (`13-navigation/`) — `NavigationRegion2D`,
+    `NavigationAgent2D`, `NavigationServer2D`, A*, enemigos que persiguen.
+14. **UI / Control nodes** (`14-ui-control-nodes/`) — `Control`, contenedores,
     anchors, themes, HUD.
-11. **Audio** (`11-audio/`) — `AudioStreamPlayer`, buses, SFX y música.
+15. **Audio** (`15-audio/`) — `AudioStreamPlayer`, buses, SFX y música.
 
 > 🎮 **Proyecto 2 — Plataformas 2D** (`projects/platformer/`): player con física,
-> tilemap, enemigos, HUD, audio. Integra los módulos 5-11.
+> tilemap, enemigos que navegan, HUD, audio. Integra los módulos 5-15.
 
 ### Bloque 3 · Arquitectura e intermedio
-12. **Resources y datos** (`12-resources/`) — `Resource` personalizado, `.tres`,
+16. **Resources y datos** (`16-resources/`) — `Resource` personalizado, `.tres`,
     datos como assets.
-13. **Autoloads / Singletons** (`13-autoloads/`) — estado global, game manager.
-14. **Gestión de escenas** (`14-scene-management/`) — cambiar de escena,
-    transiciones, pausa.
-15. **Save / load** (`15-save-load/`) — `FileAccess`, JSON, `user://`,
+17. **Autoloads / Singletons** (`17-autoloads/`) — estado global, game manager.
+18. **Gestión de escenas** (`18-scene-management/`) — cambiar de escena,
+    transiciones (con `await`), pausa.
+19. **Save / load** (`19-save-load/`) — `FileAccess`, JSON, `user://`,
     persistencia.
-16. **Patrones de arquitectura** (`16-architecture-patterns/`) — composición vs
+20. **Patrones de arquitectura** (`20-architecture-patterns/`) — composición vs
     herencia, state machines, cómo estructurar escenas a escala.
 
 > 🎮 **Proyecto 3 — Top-down con inventario y guardado** (`projects/dungeon/`):
-> integra managers, resources y save system. Integra los módulos 12-16.
+> integra managers, resources y save system. Integra los módulos 16-20.
 
 ### Bloque 4 · Avanzado
-17. **Shaders básicos** (`17-shaders/`) — lenguaje `.gdshader`, canvas_item
+21. **Shaders básicos** (`21-shaders/`) — lenguaje `.gdshader`, canvas_item
     shaders, uniforms.
-18. **Partículas y VFX** (`18-particles-vfx/`) — `GPUParticles2D`, efectos.
-19. **Tweens y animación procedural** (`19-tweens/`) — `create_tween`, easing.
-20. **Performance y profiling** (`20-performance/`) — el profiler (Tracy/Perfetto/
+22. **Partículas y VFX** (`22-particles-vfx/`) — `GPUParticles2D`, efectos.
+23. **Tweens y animación procedural** (`23-tweens/`) — `create_tween`, easing.
+24. **Animación avanzada** (`24-animation-advanced/`) — `AnimationTree`, state
+    machines de animación, blend de movimientos.
+25. **Rendering 2D: luces y capas** (`25-rendering-2d/`) — `Light2D`,
+    `CanvasModulate`, `CanvasLayer`, `SubViewport`.
+26. **Performance y profiling** (`26-performance/`) — el profiler (Tracy/Perfetto/
     Instruments), object pooling, optimización.
 
 ### Bloque 5 · Producción
-21. **Exportar y distribuir** (`21-export/`) — export templates, builds
+27. **Exportar y distribuir** (`27-export/`) — export templates, builds
     escritorio/web/móvil.
-22. **Testing y debugging** (`22-testing-debugging/`) — framework GUT,
+28. **Internacionalización (i18n)** (`28-i18n/`) — traducciones, archivos de
+    localización, `tr()`, cambio de idioma en runtime.
+29. **Editor plugins / `@tool`** (`29-editor-plugins/`) — scripts `@tool`,
+    `EditorPlugin`, herramientas custom en el editor.
+30. **Testing y debugging** (`30-testing-debugging/`) — framework GUT,
     herramientas de debug.
-23. **Puente a C#** (`23-csharp-bridge/`) — setup .NET en Godot, portar conceptos
+31. **Puente a C#** (`31-csharp-bridge/`) — setup .NET en Godot, portar conceptos
     clave, cuándo usar cada lenguaje.
 
 > 🏆 **Proyecto final**: un juego completo que cruce varios bloques.
 > Probablemente vaya a `projects/<nombre>/` en la raíz del repo (proyecto grande
 > cross-área) en lugar de dentro del curso.
+
+### Bloques extra (opcionales, fuera de alcance por ahora)
+- **3D** — nodos 3D, cámaras, iluminación, importar modelos. Muchas ofertas de
+  Godot son 3D; abrir como bloque extra si Iván quiere ir más allá del 2D.
+- **Multiplayer / Networking** — `MultiplayerAPI`, RPCs, sincronización. Skill
+  diferenciadora; bloque extra futuro.
 
 ---
 
@@ -124,7 +149,11 @@ Verificados como actuales (junio 2026):
 - **GDQuest — learning paths** — https://www.gdquest.com/tutorial/godot/learning-paths/ —
   rutas curadas gratuitas, muy buenas para 2D.
 - **GDScript reference** — https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/index.html
-- **C# en Godot (para el módulo 23)** — https://docs.godotengine.org/en/stable/tutorials/scripting/c_sharp/index.html
-- **GUT (testing, módulo 22)** — https://github.com/bitwes/Gut
+- **Navigation (módulo 13)** — https://docs.godotengine.org/en/stable/tutorials/navigation/index.html
+- **Import / assets pipeline (módulo 9)** — https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/index.html
+- **Internationalization (módulo 28)** — https://docs.godotengine.org/en/stable/tutorials/i18n/index.html
+- **Editor plugins (módulo 29)** — https://docs.godotengine.org/en/stable/tutorials/plugins/editor/index.html
+- **C# en Godot (para el módulo 31)** — https://docs.godotengine.org/en/stable/tutorials/scripting/c_sharp/index.html
+- **GUT (testing, módulo 30)** — https://github.com/bitwes/Gut
 - **Godot Asset Library** — https://godotengine.org/asset-library/asset — assets y
   addons de la comunidad.

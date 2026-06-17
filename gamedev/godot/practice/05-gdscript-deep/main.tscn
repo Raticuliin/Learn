@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bywes2fw5khmt"]
+
+[ext_resource type="Script" uid="uid://diyc25o8ukf3u" path="res://05-gdscript-deep/main.gd" id="1_jrrif"]
+
+[node name="Main" type="Node2D" unique_id=855357265]
+script = ExtResource("1_jrrif")
