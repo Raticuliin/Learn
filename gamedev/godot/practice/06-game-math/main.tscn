@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bfneg1j8am52x"]
+
+[ext_resource type="Script" uid="uid://u1nkvvmxb7lv" path="res://06-game-math/main.gd" id="1_chsr"]
+
+[node name="Main" type="Node2D" unique_id=243707373]
+script = ExtResource("1_chsr")
+
+[node name="Chaser" type="Polygon2D" parent="." unique_id=501446392]
+position = Vector2(576, 324)
+color = Color(0.3, 0.7, 1, 1)
+polygon = PackedVector2Array(-15, -12, -15, 12, 25, 0)

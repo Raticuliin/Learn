@@ -6,6 +6,14 @@ Plan completo: ver `README.md`. MOC del vault: `notes/gamedev/godot/Godot.md`.
 
 ---
 
+## 2026-06-28. Módulo 6: Math para juegos
+
+- **Cubierto**: `Vector2` (punto/dirección/desplazamiento, Y hacia abajo), resta = dirección, `length`/`normalized`/`distance_to`/`direction_to` (+ `*_squared` para comparar), ángulos (`angle`/`from_angle`/`rotated`/`angle_to_point`, `0=derecha` horario, deg↔rad), `move_toward` (clampa y para) vs `lerp`/`lerp_angle` (suave, lado corto), easing y `global_position` de vistazo. Ejercicio visual `practice/06-game-math/` ok (chaser persigue al ratón y lo mira).
+- **Notas vault**: [[game-math]].
+- **Peleado**: el patrón "devuelve vs muta" — `move_toward`/`lerp` devuelven uno nuevo, hay que reasignar (`pos = pos.move_toward(...)`); F5 (escena principal fijada, la del módulo 5) vs F6 (escena actual); el `.tscn` lo creó el tutor (Main + Chaser Polygon2D triangular).
+- **Pendiente**: nada.
+- **Siguiente**: Módulo 7, Input (Input Map, acciones, polling vs eventos; 🆕 4.7 device IDs y VirtualJoystick).
+
 ## 2026-06-19. Actualización del motor: 4.6 → 4.7
 
 - **Decisión**: Iván actualizó a Godot 4.7. El `practice/project.godot` se migró solo (`config/features` → `"4.7"`; defaults nuevos Jolt Physics 3D y driver d3d12, irrelevantes para 2D). Nada de lo cubierto en módulos 1-5 se rompe (único deprecado GDScript reseñable: `type_exists()`, que no usamos).
