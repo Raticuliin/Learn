@@ -1,12 +1,14 @@
-# Godot 4.6 — Curso (GDScript)
+# Godot 4.7 — Curso (GDScript)
 
-Curso de desarrollo de videojuegos con **Godot 4.6** y **GDScript**, de 0 a nivel
+Curso de desarrollo de videojuegos con **Godot 4.7** y **GDScript**, de 0 a nivel
 senior/empleable. Pensado para alguien que **ya programa** (no se enseñan
 fundamentos de programación) pero que **nunca ha tocado un motor de juegos**.
 
 - **Lenguaje**: GDScript primero (dominar el motor sin fricción). Puente a **C#**
   en el último módulo.
-- **Versión**: Godot 4.6 (estable desde enero 2026).
+- **Versión**: Godot 4.7 (estable; actualizado desde 4.6 el 2026-06-19). Lo
+  cubierto en los módulos 1-5 no cambia. Novedades 4.7 anotadas con 🆕 en los
+  módulos donde aplican.
 - **Alcance**: 2D + arquitectura + producción, cubriendo las áreas del manual
   oficial que aplican a 2D (incluye navigation, assets pipeline, rendering 2D,
   i18n y editor plugins). Sin 3D ni multiplayer por ahora (bloques extra
@@ -51,7 +53,7 @@ gamedev/godot/
 ## Plan del curso
 
 ### Bloque 1 · Fundamentos del motor
-1. **Setup y el editor** (`01-setup-and-editor/`) — instalar Godot 4.6, tour del
+1. **Setup y el editor** (`01-setup-and-editor/`) — instalar Godot 4.7, tour del
    editor, estructura de proyecto, qué es el game loop, primera escena que corre.
 2. **Nodos y escenas** (`02-nodes-and-scenes/`) — el árbol de nodos, composición
    de escenas, instanciar, escena como componente reutilizable.
@@ -70,20 +72,26 @@ gamedev/godot/
 6. **Math para juegos** (`06-game-math/`) — `Vector2` a fondo, `lerp`/`move_toward`/
    `lerp_angle`, transforms, distancias/ángulos, easing.
 7. **Input** (`07-input/`) — Input Map, acciones, polling vs eventos.
+   🆕 4.7: device IDs de teclado/ratón (`DEVICE_ID_KEYBOARD`, `DEVICE_ID_MOUSE`)
+   y nodo `VirtualJoystick` integrado (modos Fixed/Dynamic/Following) para táctil.
 8. **Física y movimiento 2D** (`08-physics-2d/`) — `CharacterBody2D`,
-   `RigidBody2D`, `Area2D`, collision layers/masks.
+   `RigidBody2D`, `Area2D`, collision layers/masks. 🆕 4.7: propiedad
+   `one_way_collision_direction` en `CollisionShape2D` (colisión direccional sin
+   rehacer la geometría).
 9. **Assets pipeline / importación** (`09-assets-import/`) — cómo importa Godot,
    settings de import, reimport, organización de assets.
 10. **Sprites y animación** (`10-sprites-and-animation/`) — `AnimatedSprite2D`,
     `AnimationPlayer`, `SpriteFrames`.
 11. **TileMaps y niveles** (`11-tilemaps/`) — `TileMapLayer`, tilesets, colisiones
-    de tiles.
+    de tiles. 🆕 4.7: **Scene Paint mode** (tecla B) para "pintar" instancias de
+    escenas (props, decoración, coleccionables) en el editor 2D.
 12. **Cámara y parallax** (`12-camera-and-parallax/`) — `Camera2D`, límites,
     `Parallax2D`.
 13. **Navigation / pathfinding** (`13-navigation/`) — `NavigationRegion2D`,
     `NavigationAgent2D`, `NavigationServer2D`, A*, enemigos que persiguen.
 14. **UI / Control nodes** (`14-ui-control-nodes/`) — `Control`, contenedores,
-    anchors, themes, HUD.
+    anchors, themes, HUD. 🆕 4.7: `offset_transform_*` (trasladar/rotar/escalar un
+    `Control` sin pelear con el layout del contenedor).
 15. **Audio** (`15-audio/`) — `AudioStreamPlayer`, buses, SFX y música.
 
 > 🎮 **Proyecto 2 — Plataformas 2D** (`projects/platformer/`): player con física,
@@ -105,13 +113,16 @@ gamedev/godot/
 
 ### Bloque 4 · Avanzado
 21. **Shaders básicos** (`21-shaders/`) — lenguaje `.gdshader`, canvas_item
-    shaders, uniforms.
+    shaders, uniforms. 🆕 4.7: `GradientTexture2D` con `FILL_CONIC` (gradientes
+    cónicos estilo CSS).
 22. **Partículas y VFX** (`22-particles-vfx/`) — `GPUParticles2D`, efectos.
 23. **Tweens y animación procedural** (`23-tweens/`) — `create_tween`, easing.
+    🆕 4.7: `Tween.tween_await()` (pausar el tween hasta que se emita una señal).
 24. **Animación avanzada** (`24-animation-advanced/`) — `AnimationTree`, state
     machines de animación, blend de movimientos.
 25. **Rendering 2D: luces y capas** (`25-rendering-2d/`) — `Light2D`,
-    `CanvasModulate`, `CanvasLayer`, `SubViewport`.
+    `CanvasModulate`, `CanvasLayer`, `SubViewport`. 🆕 4.7: filtrado
+    nearest-neighbor por viewport (pixel-art nítido sin blur) y salida HDR.
 26. **Performance y profiling** (`26-performance/`) — el profiler (Tracy/Perfetto/
     Instruments), object pooling, optimización.
 

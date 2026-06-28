@@ -1,6 +1,6 @@
 # Godot
 
-MOC del curso de **Godot 4.6 (GDScript)**. Índice del plan; cada `[[wikilink]]`
+MOC del curso de **Godot 4.7 (GDScript)**. Índice del plan; cada `[[wikilink]]`
 apunta a una nota atómica que se irá creando al cerrar cada módulo.
 
 Curso en disco: `gamedev/godot/`. Lenguaje: GDScript (puente a C# al final).

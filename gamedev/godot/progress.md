@@ -1,10 +1,16 @@
-# Bitácora — Curso Godot 4.6 (GDScript)
+# Bitácora — Curso Godot 4.7 (GDScript)
 
 Progreso didáctico del curso. Una entrada por módulo cerrado. Las más recientes arriba.
 
 Plan completo: ver `README.md`. MOC del vault: `notes/gamedev/godot/Godot.md`.
 
 ---
+
+## 2026-06-19. Actualización del motor: 4.6 → 4.7
+
+- **Decisión**: Iván actualizó a Godot 4.7. El `practice/project.godot` se migró solo (`config/features` → `"4.7"`; defaults nuevos Jolt Physics 3D y driver d3d12, irrelevantes para 2D). Nada de lo cubierto en módulos 1-5 se rompe (único deprecado GDScript reseñable: `type_exists()`, que no usamos).
+- **Afecta**: `README.md` actualizado a 4.7 con novedades anotadas (🆕) en módulos 7 (device IDs, `VirtualJoystick`), 8 (`one_way_collision_direction`), 11 (Scene Paint), 14 (`offset_transform_*`), 21 (`FILL_CONIC`), 23 (`tween_await`), 25 (nearest-neighbor, HDR).
+- **Siguiente**: Módulo 6, Math para juegos (sin cambios por la actualización).
 
 ## 2026-06-17. Módulo 5: GDScript a fondo
 
